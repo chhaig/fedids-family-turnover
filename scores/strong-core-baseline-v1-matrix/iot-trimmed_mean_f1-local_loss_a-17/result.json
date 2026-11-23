@@ -1,0 +1,85 @@
+{
+ "dataset": "iot",
+ "method": "trimmed_mean_f1",
+ "condition": "local_loss_a",
+ "seed": 17,
+ "attacker": "CTU-IoT-Malware-Capture-34-1",
+ "input_sha256": {
+  "train.npz": "7e29da51a1d677bda036360ca409d01275b2ac6e94e180dc65ce9d87d9e1735e",
+  "cal.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_a.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_b.npz": "88ca91ccb6677e120f5cd9060f825fcb5525ab6e03c7a075cfe0189ee442ab16",
+  "partition.npz": "8f3c16d9c2e4dff0eec3f3ea419be70a1b9b06bcfde552f882c7ddb7eaabb084"
+ },
+ "protocol_sha256": "94d0678c7d7f9459d958be00a9f1b3ff0f4a48772800bf2cedbdc1a7936ddc31",
+ "runner_sha256": "657bfcf133a992da0f8ee33b0329c555b4608d1f3f756644eaa823ca96e16292",
+ "model_sha256": "08660266a8b56b10b01da1db3d52411a38b465398562349ede9e5d870fa5a4aa",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -4.293285369873047,
+  "labels_inspected": 27841,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 26599.0,
+     "fp": 0.0,
+     "tn": 1242.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 9256.0,
+     "fn": 17343.0,
+     "fp": 8.0,
+     "tn": 1234.0,
+     "recall": 0.34798300687995787,
+     "fpr": 0.00644122383252818
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 26599.0,
+     "fp": 0.0,
+     "tn": 1242.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 9256.0,
+     "fn": 17343.0,
+     "fp": 8.0,
+     "tn": 1234.0,
+     "recall": 0.34798300687995787,
+     "fpr": 0.00644122383252818
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 8238.0,
+     "fp": 0.0,
+     "tn": 5374.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 2056.0,
+     "fn": 6182.0,
+     "fp": 0.0,
+     "tn": 5374.0,
+     "recall": 0.24957513959698957,
+     "fpr": 0.0
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "dataset": "unsw",
+ "method": "fedval_author_scoring",
+ "condition": "scaled_flip_b",
+ "seed": 43,
+ "attacker": "59.166.0.2",
+ "input_sha256": {
+  "train.npz": "f2a52fdabf3ea0c8c95364f9e7a9613089fc22e65f89b72310568515fd6bb4ab",
+  "partition.npz": "e2b5e1e27d7fcd9d180d3a0ed31683f6a5596cb629553b62e97ea58f8bcd91dd",
+  "cal.npz": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+  "period_b.npz": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+  "period_a.npz": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08"
+ },
+ "protocol_sha256": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637",
+ "runner_sha256": "93cff2c3975015903b8bfde8d7edf644485f7a0e32ad3f2d521b6a672a6fccb7",
+ "model_sha256": "0f1a5b88995446ba66de88ed3e2b986f7ad36904e0308e0fabd26fc89805e078",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -4.17167329788208,
+  "labels_inspected": 30000,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 42750.30300000261,
+     "fn": 87.69699999999999,
+     "fp": 0.0,
+     "tn": 423090.000000038,
+     "recall": 0.9979528222606099,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 42815.65800000262,
+     "fn": 22.342,
+     "fp": 4224.175000000009,
+     "tn": 418865.8250000406,
+     "recall": 0.9994784537093236,
+     "fpr": 0.009984105036752474
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 30987.923499999666,
+     "fn": 66.0765,
+     "fp": 1.372,
+     "tn": 316151.6280000184,
+     "recall": 0.9978722064790365,
+     "fpr": 4.339670982087534e-06
+    },
+    "historical": {
+     "tp": 31042.220499999687,
+     "fn": 11.779499999999999,
+     "fp": 2986.631500000004,
+     "tn": 313166.3685000167,
+     "recall": 0.9996206768854253,
+     "fpr": 0.00944679158508648
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 30844.777999998278,
+     "fn": 65.222,
+     "fp": 6.0,
+     "tn": 312492.99999997613,
+     "recall": 0.9978899385312195,
+     "fpr": 1.9200061440198075e-05
+    },
+    "historical": {
+     "tp": 30891.273999998255,
+     "fn": 18.726000000000003,
+     "fp": 2250.5850000000014,
+     "tn": 310248.41499998,
+     "recall": 0.9993941766418635,
+     "fpr": 0.007201895046064612
+    }
+   }
+  },
+  "state": {
+   "variant": "author_scoring",
+   "exponent": 1.0,
+   "revision": 600
+  }
+ }
+}

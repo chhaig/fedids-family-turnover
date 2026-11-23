@@ -1,0 +1,90 @@
+{
+ "dataset": "unsw",
+ "method": "fedval_paper_parameters",
+ "condition": "local_loss_b",
+ "seed": 17,
+ "attacker": "59.166.0.2",
+ "input_sha256": {
+  "train.npz": "f2a52fdabf3ea0c8c95364f9e7a9613089fc22e65f89b72310568515fd6bb4ab",
+  "partition.npz": "b13e8990ec2b42cf83d3eea6493841bdc1c4954a34a6d42ff2e85145d182c7fe",
+  "cal.npz": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+  "period_b.npz": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+  "period_a.npz": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08"
+ },
+ "protocol_sha256": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637",
+ "runner_sha256": "93cff2c3975015903b8bfde8d7edf644485f7a0e32ad3f2d521b6a672a6fccb7",
+ "model_sha256": "dabb420b3d507f55885228caf18759b665df34db92c3057aa0cf9b46f14164dc",
+ "environment": {
+  "python": "3.12.12",
+  "numpy": "1.26.4",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -4.544680595397949,
+  "labels_inspected": 30000,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 42782.51900000261,
+     "fn": 55.480999999999995,
+     "fp": 61.464,
+     "tn": 423028.536000038,
+     "recall": 0.9987048648396285,
+     "fpr": 0.00014527405516555458
+    },
+    "historical": {
+     "tp": 42815.65800000262,
+     "fn": 22.342,
+     "fp": 4222.126000000008,
+     "tn": 418867.8740000407,
+     "recall": 0.9994784537093236,
+     "fpr": 0.00997926209553429
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 31016.636999999675,
+     "fn": 37.36300000000001,
+     "fp": 77.7705,
+     "tn": 316075.22950001835,
+     "recall": 0.9987968377664712,
+     "fpr": 0.00024599007442597566
+    },
+    "historical": {
+     "tp": 31038.372999999683,
+     "fn": 15.626999999999999,
+     "fp": 3382.210000000004,
+     "tn": 312770.79000001645,
+     "recall": 0.999496779802924,
+     "fpr": 0.010698016466710194
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 30872.475499998265,
+     "fn": 37.524499999999996,
+     "fp": 98.65,
+     "tn": 312400.34999997634,
+     "recall": 0.9987860077644775,
+     "fpr": 0.0003156810101792565
+    },
+    "historical": {
+     "tp": 30891.273999998255,
+     "fn": 18.726000000000003,
+     "fp": 2668.1200000000013,
+     "tn": 309830.8799999808,
+     "recall": 0.9993941766418635,
+     "fpr": 0.008538011321636759
+    }
+   }
+  },
+  "state": {
+   "variant": "paper_parameters",
+   "exponent": -5.5,
+   "revision": 600
+  }
+ }
+}

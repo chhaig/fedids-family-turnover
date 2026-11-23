@@ -1,0 +1,90 @@
+{
+ "dataset": "unsw",
+ "method": "fedval_author_scoring",
+ "condition": "local_loss_b",
+ "seed": 29,
+ "attacker": "59.166.0.2",
+ "input_sha256": {
+  "train.npz": "f2a52fdabf3ea0c8c95364f9e7a9613089fc22e65f89b72310568515fd6bb4ab",
+  "partition.npz": "003b3b38b7b4560aa229505278e52d5b923e439d9663c049fec18e2f9dad0148",
+  "cal.npz": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+  "period_b.npz": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+  "period_a.npz": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08"
+ },
+ "protocol_sha256": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637",
+ "runner_sha256": "93cff2c3975015903b8bfde8d7edf644485f7a0e32ad3f2d521b6a672a6fccb7",
+ "model_sha256": "616a60d706803e8377c17b54846f2439925ade62916e66b69c0741b2e77febda",
+ "environment": {
+  "python": "3.12.12",
+  "numpy": "1.26.4",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -3.6837122440338135,
+  "labels_inspected": 30000,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 42798.661500002614,
+     "fn": 39.338499999999996,
+     "fp": 62.3155,
+     "tn": 423027.68450003804,
+     "recall": 0.9990816914888652,
+     "fpr": 0.00014728662932235315
+    },
+    "historical": {
+     "tp": 42826.64600000263,
+     "fn": 11.354,
+     "fp": 4225.097500000009,
+     "tn": 418864.9025000407,
+     "recall": 0.9997349549465429,
+     "fpr": 0.009986285423904138
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 31034.525499999683,
+     "fn": 19.474500000000003,
+     "fp": 94.714,
+     "tn": 316058.28600001836,
+     "recall": 0.9993728827204225,
+     "fpr": 0.0002995827969369087
+    },
+    "historical": {
+     "tp": 31046.146999999688,
+     "fn": 7.853,
+     "fp": 3330.005000000004,
+     "tn": 312822.9950000166,
+     "recall": 0.9997471179236169,
+     "fpr": 0.01053289072063156
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 30883.821499998256,
+     "fn": 26.178500000000003,
+     "fp": 114.125,
+     "tn": 312384.87499997637,
+     "recall": 0.9991530734390164,
+     "fpr": 0.0003652011686437673
+    },
+    "historical": {
+     "tp": 30898.745999998257,
+     "fn": 11.254000000000001,
+     "fp": 2721.9674999999993,
+     "tn": 309777.032499981,
+     "recall": 0.9996359107085085,
+     "fpr": 0.00871032387303692
+    }
+   }
+  },
+  "state": {
+   "variant": "author_scoring",
+   "exponent": 45.5,
+   "revision": 600
+  }
+ }
+}

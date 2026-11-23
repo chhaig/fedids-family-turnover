@@ -1,0 +1,85 @@
+{
+ "dataset": "iot",
+ "method": "fltrust",
+ "condition": "multistart_a",
+ "seed": 17,
+ "attacker": "CTU-IoT-Malware-Capture-34-1",
+ "input_sha256": {
+  "train.npz": "7e29da51a1d677bda036360ca409d01275b2ac6e94e180dc65ce9d87d9e1735e",
+  "cal.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_a.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_b.npz": "88ca91ccb6677e120f5cd9060f825fcb5525ab6e03c7a075cfe0189ee442ab16",
+  "partition.npz": "8f3c16d9c2e4dff0eec3f3ea419be70a1b9b06bcfde552f882c7ddb7eaabb084"
+ },
+ "protocol_sha256": "94d0678c7d7f9459d958be00a9f1b3ff0f4a48772800bf2cedbdc1a7936ddc31",
+ "runner_sha256": "657bfcf133a992da0f8ee33b0329c555b4608d1f3f756644eaa823ca96e16292",
+ "model_sha256": "524cbb065d3a0497b287854d48a214ebae85eefd162986d865bdb65b81a62e3f",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": 1.3696098327636719,
+  "labels_inspected": 27841,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 26353.0,
+     "fn": 246.0,
+     "fp": 130.0,
+     "tn": 1112.0,
+     "recall": 0.9907515320124817,
+     "fpr": 0.10466988727858294
+    },
+    "historical": {
+     "tp": 21996.0,
+     "fn": 4603.0,
+     "fp": 12.0,
+     "tn": 1230.0,
+     "recall": 0.8269483815181022,
+     "fpr": 0.00966183574879227
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 26353.0,
+     "fn": 246.0,
+     "fp": 130.0,
+     "tn": 1112.0,
+     "recall": 0.9907515320124817,
+     "fpr": 0.10466988727858294
+    },
+    "historical": {
+     "tp": 21996.0,
+     "fn": 4603.0,
+     "fp": 12.0,
+     "tn": 1230.0,
+     "recall": 0.8269483815181022,
+     "fpr": 0.00966183574879227
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 8235.0,
+     "fn": 3.0,
+     "fp": 0.0,
+     "tn": 5374.0,
+     "recall": 0.9996358339402768,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 8235.0,
+     "fn": 3.0,
+     "fp": 0.0,
+     "tn": 5374.0,
+     "recall": 0.9996358339402768,
+     "fpr": 0.0
+    }
+   }
+  }
+ }
+}

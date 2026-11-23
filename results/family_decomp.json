@@ -1,0 +1,872 @@
+[
+ {
+  "cond": "clean",
+  "seed": 29,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.21958096276360964,
+    "xss": -0.0017910942070124697,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.12228616310662899,
+    "xss": 0.0749556651644877,
+    "Backdoor": -0.4653969959085888
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.11837012580787418,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9983741547080983
+   },
+   "period_b": {
+    "d_earlier_mix": 0.10064675939954074,
+    "d_later_mix": -0.4653969959085888,
+    "backdoor_share_at_crossover": 0.1778073840683094
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 29,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.14013085137265685,
+    "xss": 0.0016016674753221785,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.1105975140346736,
+    "xss": 0.008900456677000679,
+    "Backdoor": -0.3648958010678077
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.07679560103930115,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9974961812049874
+   },
+   "period_b": {
+    "d_earlier_mix": 0.06410183417354526,
+    "d_later_mix": -0.3648958010678077,
+    "backdoor_share_at_crossover": 0.14942234853458278
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 29,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.22316783597265544,
+    "xss": 0.0026982331424436415,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.0996558303874921,
+    "xss": -0.013671370998433685,
+    "Backdoor": -0.4658526669570694
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.1223695991441222,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9984272095340524
+   },
+   "period_b": {
+    "d_earlier_mix": 0.047842873237065084,
+    "d_later_mix": -0.4658526669570694,
+    "backdoor_share_at_crossover": 0.09313468678156021
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 29,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.08714187034701976,
+    "xss": 0.0024387887876008846,
+    "Backdoor": 0.00019276491768040633
+   },
+   "period_b": {
+    "password": -0.1643181896450855,
+    "xss": -0.3632232425590596,
+    "Backdoor": -0.5454557750880406
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.04841580033314987,
+    "d_later_mix": 0.00019276491768040633,
+    "backdoor_share_at_crossover": null
+   },
+   "period_b": {
+    "d_earlier_mix": -0.2552571597917096,
+    "d_later_mix": -0.5454557750880406,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 29,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.05504142389914768,
+    "xss": 0.0063928386425183975,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.14656502229036522,
+    "xss": 0.08302284928648618,
+    "Backdoor": -0.4661096868473098
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.032799393455398736,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9941572504744733
+   },
+   "period_b": {
+    "d_earlier_mix": 0.11751367498069912,
+    "d_later_mix": -0.4661096868473098,
+    "backdoor_share_at_crossover": 0.20135190375626166
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 43,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.007749690928342462,
+    "xss": 0.0002995902798799445,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.10257137216893858,
+    "xss": -0.17449754930970085,
+    "Backdoor": -0.38826494738958
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.00434352064491132,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9575060002240526
+   },
+   "period_b": {
+    "d_earlier_mix": -0.024103953619796815,
+    "d_later_mix": -0.38826494738958,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 43,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.011818564557528666,
+    "xss": -0.0037711642973264105,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.11279173278453974,
+    "xss": -0.12240046307198926,
+    "Backdoor": -0.1944150018888744
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.004690973447317972,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9605292291941872
+   },
+   "period_b": {
+    "d_earlier_mix": 0.005262357515394796,
+    "d_later_mix": -0.1944150018888744,
+    "backdoor_share_at_crossover": 0.02635430241613203
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 43,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.07604593159102593,
+    "xss": -0.0014069364689190261,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.1171944368532557,
+    "xss": 0.004040033812584776,
+    "Backdoor": -0.39062374287395246
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.04063464387818922,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9952785414659989
+   },
+   "period_b": {
+    "d_earlier_mix": 0.06546048274136544,
+    "d_later_mix": -0.39062374287395246,
+    "backdoor_share_at_crossover": 0.14352717999192055
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 43,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.0009816866553036263,
+    "xss": 0.0007821250843773747,
+    "Backdoor": 0.00019276491768040633
+   },
+   "period_b": {
+    "password": -0.2842393889517417,
+    "xss": -0.39366032919684923,
+    "Backdoor": -0.3879436725267793
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.0008904475265082171,
+    "d_later_mix": 0.00019276491768040633,
+    "backdoor_share_at_crossover": null
+   },
+   "period_b": {
+    "d_earlier_mix": -0.33426641175778876,
+    "d_later_mix": -0.3879436725267793,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "clean",
+  "seed": 43,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.020547978126882166,
+    "xss": 0.005142615583239123,
+    "Backdoor": -0.00019276491768040633
+   },
+   "period_b": {
+    "password": 0.1271291781167908,
+    "xss": -0.1866707187829305,
+    "Backdoor": -0.38813643744445975
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.013504678904814734,
+    "d_later_mix": -0.00019276491768040633,
+    "backdoor_share_at_crossover": 0.9859269422690509
+   },
+   "period_b": {
+    "d_earlier_mix": -0.01633947206636712,
+    "d_later_mix": -0.38813643744445975,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 29,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.09998140046193418,
+    "xss": 0.007836548591954557,
+    "Backdoor": -0.8963321666770144
+   },
+   "period_b": {
+    "password": 0.1511075502302902,
+    "xss": 0.14956693555295278,
+    "Backdoor": -0.5795540889232071
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.05785296877752992,
+    "d_later_mix": -0.8963321666770144,
+    "backdoor_share_at_crossover": 0.06063075877824334
+   },
+   "period_b": {
+    "d_earlier_mix": 0.15040318445326578,
+    "d_later_mix": -0.5795540889232071,
+    "backdoor_share_at_crossover": 0.2060438191917239
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 29,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.10015833521371106,
+    "xss": 0.012078512610117222,
+    "Backdoor": -0.530309252717012
+   },
+   "period_b": {
+    "password": 0.18750023459224346,
+    "xss": 0.17779032480055826,
+    "Backdoor": -0.537844257123147
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.05988842632541138,
+    "d_later_mix": -0.530309252717012,
+    "backdoor_share_at_crossover": 0.10147180928020322
+   },
+   "period_b": {
+    "d_earlier_mix": 0.1830608843407726,
+    "d_later_mix": -0.537844257123147,
+    "backdoor_share_at_crossover": 0.253931999942512
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 29,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.24603355734420446,
+    "xss": 0.014868475504218163,
+    "Backdoor": -0.9349611928038049
+   },
+   "period_b": {
+    "password": 0.20172939118124114,
+    "xss": 0.17893801276730525,
+    "Backdoor": -0.5787678237617497
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.1403453700990049,
+    "d_later_mix": -0.9349611928038049,
+    "backdoor_share_at_crossover": 0.1305166126022146
+   },
+   "period_b": {
+    "d_earlier_mix": 0.19130922110098816,
+    "d_later_mix": -0.5787678237617497,
+    "backdoor_share_at_crossover": 0.24842867655545817
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 29,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.3806250137208818,
+    "xss": 0.0222555083034845,
+    "Backdoor": -0.5155335483642031
+   },
+   "period_b": {
+    "password": 0.10497266422875134,
+    "xss": 0.08330295545268018,
+    "Backdoor": -0.12746376614364086
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.21677923264508328,
+    "d_later_mix": -0.5155335483642031,
+    "backdoor_share_at_crossover": 0.2960200043843484
+   },
+   "period_b": {
+    "d_earlier_mix": 0.09506531913819972,
+    "d_later_mix": -0.12746376614364086,
+    "backdoor_share_at_crossover": 0.42720401702903826
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 29,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.043269493870365716,
+    "xss": 0.010014759508311911,
+    "Backdoor": -0.5829865804407492
+   },
+   "period_b": {
+    "password": 0.22371409194648118,
+    "xss": 0.2390589680616833,
+    "Backdoor": -0.574261636211038
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.0280654995470407,
+    "d_later_mix": -0.5829865804407492,
+    "backdoor_share_at_crossover": 0.04592979954769404
+   },
+   "period_b": {
+    "d_earlier_mix": 0.23072973690120005,
+    "d_later_mix": -0.574261636211038,
+    "backdoor_share_at_crossover": 0.28662386282371993
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 43,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.0793564548284626,
+    "xss": 0.011922945038346427,
+    "Backdoor": -0.8518451453448066
+   },
+   "period_b": {
+    "password": -0.139395126903947,
+    "xss": -0.16778031457282733,
+    "Backdoor": -0.9347134921637407
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.048525996557813866,
+    "d_later_mix": -0.8518451453448066,
+    "backdoor_share_at_crossover": 0.05389554851266234
+   },
+   "period_b": {
+    "d_earlier_mix": -0.1523727747626117,
+    "d_later_mix": -0.9347134921637407,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 43,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.18829874070199762,
+    "xss": 0.03149377140878751,
+    "Backdoor": -0.8192350024758884
+   },
+   "period_b": {
+    "password": 0.024196857126833338,
+    "xss": -0.05918556352573211,
+    "Backdoor": -0.9349611928038049
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.11660783988026328,
+    "d_later_mix": -0.8192350024758884,
+    "backdoor_share_at_crossover": 0.12460194661176464
+   },
+   "period_b": {
+    "d_earlier_mix": -0.013925409509381287,
+    "d_later_mix": -0.9349611928038049,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 43,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.13946157054381053,
+    "xss": 0.0121186950888434,
+    "Backdoor": -0.8230868678198797
+   },
+   "period_b": {
+    "password": -0.002717437573885817,
+    "xss": -0.1138287399395186,
+    "Backdoor": -0.9349611928038049
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.08124067680717416,
+    "d_later_mix": -0.8230868678198797,
+    "backdoor_share_at_crossover": 0.08983545540535089
+   },
+   "period_b": {
+    "d_earlier_mix": -0.05351729037174764,
+    "d_later_mix": -0.9349611928038049,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 43,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.2759964401407966,
+    "xss": 0.04296046679605335,
+    "Backdoor": -0.8416423367462121
+   },
+   "period_b": {
+    "password": -0.24505771385504843,
+    "xss": -0.1960115899121228,
+    "Backdoor": -0.9348420021088608
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.16945288525055163,
+    "d_later_mix": -0.8416423367462121,
+    "backdoor_share_at_crossover": 0.16759339928034395
+   },
+   "period_b": {
+    "d_earlier_mix": -0.2226339295634429,
+    "d_later_mix": -0.9348420021088608,
+    "backdoor_share_at_crossover": null
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_a",
+  "seed": 43,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.25724941799944545,
+    "xss": 0.02613420005888963,
+    "Backdoor": -0.8164602661746836
+   },
+   "period_b": {
+    "password": 0.1061432789673667,
+    "xss": -0.06636630584519282,
+    "Backdoor": -0.9284218974198125
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.15158402842376342,
+    "d_later_mix": -0.8164602661746836,
+    "backdoor_share_at_crossover": 0.15658790539811174
+   },
+   "period_b": {
+    "d_earlier_mix": 0.027272261095031326,
+    "d_later_mix": -0.9284218974198125,
+    "backdoor_share_at_crossover": 0.028536599132731575
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 29,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.07272203303127205,
+    "xss": 0.0027865970797042554,
+    "Backdoor": -0.3544069820701645
+   },
+   "period_b": {
+    "password": 0.515826762050437,
+    "xss": 0.3874638453542218,
+    "Backdoor": -0.15074319081584206
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.04074769940314957,
+    "d_later_mix": -0.3544069820701645,
+    "backdoor_share_at_crossover": 0.10311835165718863
+   },
+   "period_b": {
+    "d_earlier_mix": 0.4571395076124146,
+    "d_later_mix": -0.15074319081584206,
+    "backdoor_share_at_crossover": 0.7520192773941352
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 29,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.05141398428895452,
+    "xss": 0.0026650176325534562,
+    "Backdoor": -0.35804744399612287
+   },
+   "period_b": {
+    "password": 0.4413144944829355,
+    "xss": 0.34735306935865423,
+    "Backdoor": -0.010971908711967737
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.02912605968121433,
+    "d_later_mix": -0.35804744399612287,
+    "backdoor_share_at_crossover": 0.07522740942904868
+   },
+   "period_b": {
+    "d_earlier_mix": 0.3983555293428853,
+    "d_later_mix": -0.010971908711967737,
+    "backdoor_share_at_crossover": 0.9731952767102375
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 29,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.1156773634402866,
+    "xss": 0.0002956700580879143,
+    "Backdoor": -0.35900783557490806
+   },
+   "period_b": {
+    "password": 0.4308095565928546,
+    "xss": 0.38339791052465977,
+    "Backdoor": -0.002701162078468433
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.06292509688781868,
+    "d_later_mix": -0.35900783557490806,
+    "backdoor_share_at_crossover": 0.14913530574762007
+   },
+   "period_b": {
+    "d_earlier_mix": 0.40913305213390244,
+    "d_later_mix": -0.002701162078468433,
+    "backdoor_share_at_crossover": 0.993441142126488
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 29,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.011457091534813944,
+    "xss": 0.005828668302502532,
+    "Backdoor": -0.35871108545301955
+   },
+   "period_b": {
+    "password": 0.25094956567375964,
+    "xss": 0.12115993982451917,
+    "Backdoor": -0.35799839451429855
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.008883788319047457,
+    "d_later_mix": -0.35871108545301955,
+    "backdoor_share_at_crossover": 0.024167334620003405
+   },
+   "period_b": {
+    "d_earlier_mix": 0.19161002282388384,
+    "d_later_mix": -0.35799839451429855,
+    "backdoor_share_at_crossover": 0.3486300733017764
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 29,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.0056494541245777265,
+    "xss": 0.008060121456426091,
+    "Backdoor": -0.35718171837136936
+   },
+   "period_b": {
+    "password": 0.5690157782357105,
+    "xss": 0.4436833820624468,
+    "Backdoor": -0.04842913227342499
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.006751606137876323,
+    "d_later_mix": -0.35718171837136936,
+    "backdoor_share_at_crossover": 0.01855176671985365
+   },
+   "period_b": {
+    "d_earlier_mix": 0.5117140713809595,
+    "d_later_mix": -0.04842913227342499,
+    "backdoor_share_at_crossover": 0.9135415158883077
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 43,
+  "root": "draw20261114",
+  "d": {
+   "period_a": {
+    "password": 0.07760694523387653,
+    "xss": 0.012068667991719897,
+    "Backdoor": -0.8138115865876563
+   },
+   "period_b": {
+    "password": 0.34229484648227204,
+    "xss": 0.12310249339110987,
+    "Backdoor": -0.811847640188821
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.047642983281822295,
+    "d_later_mix": -0.8138115865876563,
+    "backdoor_share_at_crossover": 0.055305276619567786
+   },
+   "period_b": {
+    "d_earlier_mix": 0.24208056553714946,
+    "d_later_mix": -0.811847640188821,
+    "backdoor_share_at_crossover": 0.22969360172916017
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 43,
+  "root": "draw20261115",
+  "d": {
+   "period_a": {
+    "password": 0.09158328715824092,
+    "xss": 0.0071178243849588305,
+    "Backdoor": -0.8137718563560082
+   },
+   "period_b": {
+    "password": 0.33312853879591486,
+    "xss": 0.09875886111917229,
+    "Backdoor": -0.8099631542532817
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.05296585595159185,
+    "d_later_mix": -0.8137718563560082,
+    "backdoor_share_at_crossover": 0.06110943968340284
+   },
+   "period_b": {
+    "d_earlier_mix": 0.22597521710158286,
+    "d_later_mix": -0.8099631542532817,
+    "backdoor_share_at_crossover": 0.21813577269663104
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 43,
+  "root": "draw20261116",
+  "d": {
+   "period_a": {
+    "password": 0.32158172282908537,
+    "xss": 0.007580289571336177,
+    "Backdoor": -0.8082410222539513
+   },
+   "period_b": {
+    "password": 0.41060700549043405,
+    "xss": 0.11110745579436607,
+    "Backdoor": -0.8032546389138469
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.17802093064863952,
+    "d_later_mix": -0.8082410222539513,
+    "backdoor_share_at_crossover": 0.18050065717806507
+   },
+   "period_b": {
+    "d_earlier_mix": 0.27367644384946027,
+    "d_later_mix": -0.8032546389138469,
+    "backdoor_share_at_crossover": 0.25412623725859174
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 43,
+  "root": "draw20261117",
+  "d": {
+   "period_a": {
+    "password": 0.13230771532404376,
+    "xss": 0.010017223391236344,
+    "Backdoor": -0.8160968078492924
+   },
+   "period_b": {
+    "password": 0.13310844969872399,
+    "xss": 0.06797991123901222,
+    "Backdoor": -0.8134505814932077
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.07639676066416726,
+    "d_later_mix": -0.8160968078492924,
+    "backdoor_share_at_crossover": 0.08559922822907728
+   },
+   "period_b": {
+    "d_earlier_mix": 0.10333181945272142,
+    "d_later_mix": -0.8134505814932077,
+    "backdoor_share_at_crossover": 0.11271139077943079
+   }
+  }
+ },
+ {
+  "cond": "scaled_flip_b",
+  "seed": 43,
+  "root": "draw20261118",
+  "d": {
+   "period_a": {
+    "password": 0.07462932694099794,
+    "xss": 0.012818774391484936,
+    "Backdoor": -0.8137076013834482
+   },
+   "period_b": {
+    "password": 0.3238137812614814,
+    "xss": 0.12491788600280239,
+    "Backdoor": -0.8101559191709621
+   }
+  },
+  "mix": {
+   "period_a": {
+    "d_earlier_mix": 0.04636967284624972,
+    "d_later_mix": -0.8137076013834482,
+    "backdoor_share_at_crossover": 0.053913379920169736
+   },
+   "period_b": {
+    "d_earlier_mix": 0.23287899797551923,
+    "d_later_mix": -0.8101559191709621,
+    "backdoor_share_at_crossover": 0.2232705675977042
+   }
+  }
+ }
+]

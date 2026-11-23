@@ -1,0 +1,85 @@
+{
+ "dataset": "cic",
+ "method": "fltrust",
+ "condition": "multistart_a",
+ "seed": 17,
+ "attacker": "192.168.10.50",
+ "input_sha256": {
+  "train.npz": "bc554788870ae8744d59cd2fc3e542990c3f921918be99d21fc5929a725bd174",
+  "cal.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_a.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_b.npz": "f740c31651cc2e29103043b7b4b98ebf5c0aba441696b0c640fd0fffe0038369",
+  "partition.npz": "06a9b7fea5ad9fba70a394207aec847c2d62982de4ee082d91860798abad8cd9"
+ },
+ "protocol_sha256": "94d0678c7d7f9459d958be00a9f1b3ff0f4a48772800bf2cedbdc1a7936ddc31",
+ "runner_sha256": "657bfcf133a992da0f8ee33b0329c555b4608d1f3f756644eaa823ca96e16292",
+ "model_sha256": "4b25e38b8516c6d0294edb10a9e4805363acfcae2adc8faf45c4596d7768aa2e",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -1.8965799808502197,
+  "labels_inspected": 49998,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 6250.0,
+     "fn": 1316.0,
+     "fp": 36.0,
+     "tn": 42396.0,
+     "recall": 0.8260639703938673,
+     "fpr": 0.0008484162895927602
+    },
+    "historical": {
+     "tp": 6466.0,
+     "fn": 1100.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.8546127412106793,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 6250.0,
+     "fn": 1316.0,
+     "fp": 36.0,
+     "tn": 42396.0,
+     "recall": 0.8260639703938673,
+     "fpr": 0.0008484162895927602
+    },
+    "historical": {
+     "tp": 6466.0,
+     "fn": 1100.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.8546127412106793,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 9.0,
+     "fn": 71898.0,
+     "fp": 147.0,
+     "tn": 289783.0,
+     "recall": 0.00012516166715340648,
+     "fpr": 0.0005070189356051461
+    },
+    "historical": {
+     "tp": 20.0,
+     "fn": 71887.0,
+     "fp": 3489.0,
+     "tn": 286441.0,
+     "recall": 0.0002781370381186811,
+     "fpr": 0.012033939226709896
+    }
+   }
+  }
+ }
+}

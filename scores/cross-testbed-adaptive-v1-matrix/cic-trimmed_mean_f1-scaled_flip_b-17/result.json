@@ -1,0 +1,85 @@
+{
+ "dataset": "cic",
+ "method": "trimmed_mean_f1",
+ "condition": "scaled_flip_b",
+ "seed": 17,
+ "attacker": "192.168.10.3",
+ "input_sha256": {
+  "train.npz": "bc554788870ae8744d59cd2fc3e542990c3f921918be99d21fc5929a725bd174",
+  "cal.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_a.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_b.npz": "f740c31651cc2e29103043b7b4b98ebf5c0aba441696b0c640fd0fffe0038369",
+  "partition.npz": "06a9b7fea5ad9fba70a394207aec847c2d62982de4ee082d91860798abad8cd9"
+ },
+ "protocol_sha256": "ac21ba67b85f6d33eec46465ee4315098f58a7907e73d6f43e57d14178b365c7",
+ "runner_sha256": "23875b77a2ac37162157f39d42ab3237ca46f76d6770692e9684b029f13a02f2",
+ "model_sha256": "9fd78a4dced77e39f72de241f13eb15e46fa4138c6d2692652cde1f4723dac1b",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": 0.5859622359275818,
+  "labels_inspected": 49998,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 1762.0,
+     "fn": 5804.0,
+     "fp": 684.0,
+     "tn": 41748.0,
+     "recall": 0.23288395453343907,
+     "fpr": 0.016119909502262445
+    },
+    "historical": {
+     "tp": 329.0,
+     "fn": 7237.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.04348400740153317,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 1762.0,
+     "fn": 5804.0,
+     "fp": 684.0,
+     "tn": 41748.0,
+     "recall": 0.23288395453343907,
+     "fpr": 0.016119909502262445
+    },
+    "historical": {
+     "tp": 329.0,
+     "fn": 7237.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.04348400740153317,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 71907.0,
+     "fp": 3838.0,
+     "tn": 286092.0,
+     "recall": 0.0,
+     "fpr": 0.013237678060221433
+    },
+    "historical": {
+     "tp": 0.0,
+     "fn": 71907.0,
+     "fp": 2273.0,
+     "tn": 287657.0,
+     "recall": 0.0,
+     "fpr": 0.00783982340564964
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.env
+access.env
+*.pem
+*.key
+*.log
+*.tmp
+*.bak
+generated/
+local-work/
+external-data/
+external-workspace/

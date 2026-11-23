@@ -1,0 +1,85 @@
+{
+ "dataset": "cic",
+ "method": "fedavg",
+ "condition": "adaptive_deviation_a",
+ "seed": 17,
+ "attacker": "192.168.10.50",
+ "input_sha256": {
+  "train.npz": "bc554788870ae8744d59cd2fc3e542990c3f921918be99d21fc5929a725bd174",
+  "cal.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_a.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_b.npz": "f740c31651cc2e29103043b7b4b98ebf5c0aba441696b0c640fd0fffe0038369",
+  "partition.npz": "06a9b7fea5ad9fba70a394207aec847c2d62982de4ee082d91860798abad8cd9"
+ },
+ "protocol_sha256": "ac21ba67b85f6d33eec46465ee4315098f58a7907e73d6f43e57d14178b365c7",
+ "runner_sha256": "23875b77a2ac37162157f39d42ab3237ca46f76d6770692e9684b029f13a02f2",
+ "model_sha256": "d65ecde481b56a4e06d1e7291e0e025bf6064e69ef657257fd325f1a5a1d016f",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -5.677720546722412,
+  "labels_inspected": 49998,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 7566.0,
+     "fp": 0.0,
+     "tn": 42432.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 0.0,
+     "fn": 7566.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.0,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 7566.0,
+     "fp": 0.0,
+     "tn": 42432.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 0.0,
+     "fn": 7566.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.0,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 71907.0,
+     "fp": 0.0,
+     "tn": 289930.0,
+     "recall": 0.0,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 162.0,
+     "fn": 71745.0,
+     "fp": 2517.0,
+     "tn": 287413.0,
+     "recall": 0.0022529100087613167,
+     "fpr": 0.008681405856586073
+    }
+   }
+  }
+ }
+}

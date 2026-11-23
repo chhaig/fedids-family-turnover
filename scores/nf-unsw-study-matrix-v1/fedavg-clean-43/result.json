@@ -1,0 +1,85 @@
+{
+ "dataset": "unsw",
+ "method": "fedavg",
+ "condition": "clean",
+ "seed": 43,
+ "attacker": null,
+ "input_sha256": {
+  "train.npz": "f2a52fdabf3ea0c8c95364f9e7a9613089fc22e65f89b72310568515fd6bb4ab",
+  "partition.npz": "e2b5e1e27d7fcd9d180d3a0ed31683f6a5596cb629553b62e97ea58f8bcd91dd",
+  "cal.npz": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+  "period_b.npz": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+  "period_a.npz": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08"
+ },
+ "protocol_sha256": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637",
+ "runner_sha256": "1e3089c4623591129a9a0147656c728127d0dfa3fcb9c749ccf0c7f6be00d999",
+ "model_sha256": "c4175b1b7874aa1d3a04b9e0ecaedd5ecb0a47176e1321361dc49d5041debafd",
+ "environment": {
+  "python": "3.12.12",
+  "numpy": "1.26.4",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -3.7836852073669434,
+  "labels_inspected": 30000,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 33963.538000001165,
+     "fn": 8874.461999999989,
+     "fp": 0.0,
+     "tn": 423090.000000038,
+     "recall": 0.7928366870535565,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 42138.73400000251,
+     "fn": 699.2660000000008,
+     "fp": 4221.903500000007,
+     "tn": 418868.0965000403,
+     "recall": 0.9836765021709706,
+     "fpr": 0.009978736202698254
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 24906.16949999774,
+     "fn": 6147.830499999929,
+     "fp": 0.0,
+     "tn": 316153.0000000184,
+     "recall": 0.8020277419977977,
+     "fpr": 0.0
+    },
+    "historical": {
+     "tp": 30571.14899999954,
+     "fn": 482.85099999999966,
+     "fp": 3567.0970000000034,
+     "tn": 312585.9030000166,
+     "recall": 0.9844512462162682,
+     "fpr": 0.011282818761801457
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 24599.62050000025,
+     "fn": 6310.379499999922,
+     "fp": 5.0,
+     "tn": 312493.99999997613,
+     "recall": 0.79584666774507,
+     "fpr": 1.600005120016506e-05
+    },
+    "historical": {
+     "tp": 30427.357499998412,
+     "fn": 482.6424999999992,
+     "fp": 3062.7445,
+     "tn": 309436.25549998146,
+     "recall": 0.9843855548366217,
+     "fpr": 0.009800813762604622
+    }
+   }
+  }
+ }
+}

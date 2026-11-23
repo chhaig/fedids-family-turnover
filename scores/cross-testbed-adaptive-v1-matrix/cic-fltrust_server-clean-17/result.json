@@ -1,0 +1,85 @@
+{
+ "dataset": "cic",
+ "method": "fltrust_server",
+ "condition": "clean",
+ "seed": 17,
+ "attacker": null,
+ "input_sha256": {
+  "train.npz": "bc554788870ae8744d59cd2fc3e542990c3f921918be99d21fc5929a725bd174",
+  "cal.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_a.npz": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+  "period_b.npz": "f740c31651cc2e29103043b7b4b98ebf5c0aba441696b0c640fd0fffe0038369",
+  "partition.npz": "06a9b7fea5ad9fba70a394207aec847c2d62982de4ee082d91860798abad8cd9"
+ },
+ "protocol_sha256": "ac21ba67b85f6d33eec46465ee4315098f58a7907e73d6f43e57d14178b365c7",
+ "runner_sha256": "23875b77a2ac37162157f39d42ab3237ca46f76d6770692e9684b029f13a02f2",
+ "model_sha256": "9b69e2ca21967f8fb203f1337a8892bfdc57e752a9fa7012d07334f50fa68c46",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": -2.1265387535095215,
+  "labels_inspected": 49998,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 6706.0,
+     "fn": 860.0,
+     "fp": 19.0,
+     "tn": 42413.0,
+     "recall": 0.8863335976738038,
+     "fpr": 0.0004477752639517345
+    },
+    "historical": {
+     "tp": 6943.0,
+     "fn": 623.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.9176579434311393,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 6706.0,
+     "fn": 860.0,
+     "fp": 19.0,
+     "tn": 42413.0,
+     "recall": 0.8863335976738038,
+     "fpr": 0.0004477752639517345
+    },
+    "historical": {
+     "tp": 6943.0,
+     "fn": 623.0,
+     "fp": 424.0,
+     "tn": 42008.0,
+     "recall": 0.9176579434311393,
+     "fpr": 0.009992458521870286
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 0.0,
+     "fn": 71907.0,
+     "fp": 90.0,
+     "tn": 289840.0,
+     "recall": 0.0,
+     "fpr": 0.00031041975649294656
+    },
+    "historical": {
+     "tp": 24.0,
+     "fn": 71883.0,
+     "fp": 3248.0,
+     "tn": 286682.0,
+     "recall": 0.00033376444574241727,
+     "fpr": 0.011202704100989894
+    }
+   }
+  }
+ }
+}

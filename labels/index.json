@@ -1,0 +1,2165 @@
+[
+ {
+  "dir": "nf-feature-access-v1/data/zero_icmp/nf",
+  "roles": {
+   "cal": {
+    "sha256": "246ccb3cf23e07385a32086e00bb4565c8678c2092c7693ffcafef349795e6e2",
+    "bytes": 5882020,
+    "keys": {
+     "x": [
+      [
+       57780,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       57780
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       57780
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       57780
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ]
+    },
+    "export": "246ccb3cf23e0738.npz"
+   },
+   "period_a": {
+    "sha256": "15ad52a1bf393c82e7428d2215928f17ded77f704ae17fd4e54d482da8c54ebc",
+    "bytes": 12137688,
+    "keys": {
+     "x": [
+      [
+       96020,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       96020
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       96020
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       96020
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ]
+    },
+    "export": "15ad52a1bf393c82.npz"
+   },
+   "period_b": {
+    "sha256": "fe86f90b5a98c78adc889a6edc1fffe027790fd6c3781f367cd264fb0bc182be",
+    "bytes": 10170978,
+    "keys": {
+     "x": [
+      [
+       97045,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       97045
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       97045
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       97045
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ]
+    },
+    "export": "fe86f90b5a98c78a.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "variant",
+   "parent_manifest_sha256",
+   "protocol_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-feature-access-v1/data/protocol_masked_icmp/nf",
+  "roles": {
+   "cal": {
+    "sha256": "6dc322635efc430a9244a17557dc107e244291e699a0f51b1a29e32282b36d05",
+    "bytes": 5886070,
+    "keys": {
+     "x": [
+      [
+       57780,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       57780
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       57780
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       57780
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ]
+    },
+    "export": "6dc322635efc430a.npz"
+   },
+   "period_a": {
+    "sha256": "17eabb5897c6950a948d993cb5ab73e4d584d6fcc364c264c302a571e4acf198",
+    "bytes": 12138063,
+    "keys": {
+     "x": [
+      [
+       96020,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       96020
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       96020
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       96020
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ]
+    },
+    "export": "17eabb5897c6950a.npz"
+   },
+   "period_b": {
+    "sha256": "74435007db89ca7f305600f3a9e32942fc329c34802fab208b50d1b51a425d31",
+    "bytes": 10169413,
+    "keys": {
+     "x": [
+      [
+       97045,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       97045
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       97045
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       97045
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ]
+    },
+    "export": "74435007db89ca7f.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "variant",
+   "parent_manifest_sha256",
+   "protocol_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-feature-access-v1/data/zero_four/nf",
+  "roles": {
+   "cal": {
+    "sha256": "45bdb8495697d4fab30447c9eac89a6f8d32629d0ab4a4a068c8f00eccc9e7d9",
+    "bytes": 5887497,
+    "keys": {
+     "x": [
+      [
+       57780,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       57780
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       57780
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       57780
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ]
+    },
+    "export": "45bdb8495697d4fa.npz"
+   },
+   "period_a": {
+    "sha256": "15be17ee426adbd89335238026d57803bdff758f4142bb3c96fa2c1207668563",
+    "bytes": 12176500,
+    "keys": {
+     "x": [
+      [
+       96020,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       96020
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       96020
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       96020
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ]
+    },
+    "export": "15be17ee426adbd8.npz"
+   },
+   "period_b": {
+    "sha256": "1a106488cffbcb574793690c061dd69bc0a364a85483153d65a7f15b3c853810",
+    "bytes": 10186770,
+    "keys": {
+     "x": [
+      [
+       97045,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       97045
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       97045
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       97045
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "parent_model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ]
+    },
+    "export": "1a106488cffbcb57.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "variant",
+   "parent_manifest_sha256",
+   "protocol_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw20261115/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "keys": {
+     "x": [
+      [
+       57780,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       57780
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       57780
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       57780
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       57780
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       57780
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       57780
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       57780
+      ],
+      "int64"
+     ]
+    },
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "keys": {
+     "x": [
+      [
+       96020,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       96020
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       96020
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       96020
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       96020
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       96020
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       96020
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       96020
+      ],
+      "int64"
+     ]
+    },
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "keys": {
+     "x": [
+      [
+       97045,
+       162
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       97045
+      ],
+      "uint8"
+     ],
+     "owner": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "family": [
+      [
+       97045
+      ],
+      "<U16"
+     ],
+     "model_input_hash": [
+      [
+       97045
+      ],
+      "<U64"
+     ],
+     "weight": [
+      [
+       97045
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       97045
+      ],
+      "<U21"
+     ],
+     "time": [
+      [
+       97045
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       97045
+      ],
+      "int64"
+     ]
+    },
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw20261118/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw0/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw20261116/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw20261114/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-root-seed-v1/data/draw20261117/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-unsw-study-matrix-v1/data/draw-17",
+  "roles": {
+   "cal": {
+    "sha256": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+    "bytes": 3887770,
+    "keys": {
+     "x": [
+      [
+       30000,
+       432
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       30000
+      ],
+      "uint8"
+     ],
+     "family": [
+      [
+       30000
+      ],
+      "<U64"
+     ],
+     "owner": [
+      [
+       30000
+      ],
+      "<U15"
+     ],
+     "row_id": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "start_ms": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "end_ms": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "time": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "day": [
+      [
+       30000
+      ],
+      "<U16"
+     ],
+     "weight": [
+      [
+       30000
+      ],
+      "float64"
+     ],
+     "model_input_hash": [
+      [
+       30000
+      ],
+      "<U64"
+     ]
+    },
+    "export": "057e620f5c56de26.npz"
+   },
+   "period_a": {
+    "sha256": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08",
+    "bytes": 3889879,
+    "keys": {
+     "x": [
+      [
+       30000,
+       432
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       30000
+      ],
+      "uint8"
+     ],
+     "family": [
+      [
+       30000
+      ],
+      "<U64"
+     ],
+     "owner": [
+      [
+       30000
+      ],
+      "<U15"
+     ],
+     "row_id": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "start_ms": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "end_ms": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "time": [
+      [
+       30000
+      ],
+      "int64"
+     ],
+     "day": [
+      [
+       30000
+      ],
+      "<U16"
+     ],
+     "weight": [
+      [
+       30000
+      ],
+      "float64"
+     ],
+     "model_input_hash": [
+      [
+       30000
+      ],
+      "<U64"
+     ]
+    },
+    "export": "475901362f96b030.npz"
+   },
+   "period_b": {
+    "sha256": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+    "bytes": 3808272,
+    "keys": {
+     "x": [
+      [
+       28009,
+       432
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       28009
+      ],
+      "uint8"
+     ],
+     "family": [
+      [
+       28009
+      ],
+      "<U64"
+     ],
+     "owner": [
+      [
+       28009
+      ],
+      "<U15"
+     ],
+     "row_id": [
+      [
+       28009
+      ],
+      "int64"
+     ],
+     "start_ms": [
+      [
+       28009
+      ],
+      "int64"
+     ],
+     "end_ms": [
+      [
+       28009
+      ],
+      "int64"
+     ],
+     "time": [
+      [
+       28009
+      ],
+      "int64"
+     ],
+     "day": [
+      [
+       28009
+      ],
+      "<U16"
+     ],
+     "weight": [
+      [
+       28009
+      ],
+      "float64"
+     ],
+     "model_input_hash": [
+      [
+       28009
+      ],
+      "<U64"
+     ]
+    },
+    "export": "bb054cce6ade821b.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "attackers",
+   "weights",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "root_seed",
+   "paired_model_seed",
+   "both_root_classes_present",
+   "execution_eligible",
+   "execution_ineligibility",
+   "files"
+  ],
+  "owners": [
+   "59.166.0.0",
+   "59.166.0.1",
+   "59.166.0.2",
+   "59.166.0.3",
+   "59.166.0.4",
+   "59.166.0.5",
+   "59.166.0.6",
+   "59.166.0.7",
+   "59.166.0.8",
+   "59.166.0.9",
+   "149.171.126.18",
+   "175.45.176.0",
+   "175.45.176.1",
+   "175.45.176.2",
+   "175.45.176.3"
+  ],
+  "weights": [
+   0.10029370782567053,
+   0.09968914011281302,
+   0.09993368435621605,
+   0.09925524390316387,
+   0.09982414891385843,
+   0.09886635062719655,
+   0.09536206558370927,
+   0.09478636767736463,
+   0.09583332271943389,
+   0.09440511640900365,
+   0.0030644450501443065,
+   0.004524068502956184,
+   0.006075396047044199,
+   0.0032920070544221326,
+   0.0047949352170032974
+  ]
+ },
+ {
+  "dir": "nf-unsw-study-matrix-v1/data/draw-29",
+  "roles": {
+   "cal": {
+    "sha256": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+    "bytes": 3887770,
+    "export": "057e620f5c56de26.npz"
+   },
+   "period_a": {
+    "sha256": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08",
+    "bytes": 3889879,
+    "export": "475901362f96b030.npz"
+   },
+   "period_b": {
+    "sha256": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+    "bytes": 3808272,
+    "export": "bb054cce6ade821b.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "attackers",
+   "weights",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "root_seed",
+   "paired_model_seed",
+   "both_root_classes_present",
+   "execution_eligible",
+   "execution_ineligibility",
+   "files"
+  ],
+  "owners": [
+   "59.166.0.0",
+   "59.166.0.1",
+   "59.166.0.2",
+   "59.166.0.3",
+   "59.166.0.4",
+   "59.166.0.5",
+   "59.166.0.6",
+   "59.166.0.7",
+   "59.166.0.8",
+   "59.166.0.9",
+   "149.171.126.18",
+   "175.45.176.0",
+   "175.45.176.1",
+   "175.45.176.2",
+   "175.45.176.3"
+  ],
+  "weights": [
+   0.10029370782567053,
+   0.09968914011281302,
+   0.09993368435621605,
+   0.09925524390316387,
+   0.09982414891385843,
+   0.09886635062719655,
+   0.09536206558370927,
+   0.09478636767736463,
+   0.09583332271943389,
+   0.09440511640900365,
+   0.0030644450501443065,
+   0.004524068502956184,
+   0.006075396047044199,
+   0.0032920070544221326,
+   0.0047949352170032974
+  ]
+ },
+ {
+  "dir": "nf-unsw-study-matrix-v1/data/draw-43",
+  "roles": {
+   "cal": {
+    "sha256": "057e620f5c56de26f98fd564795467c93676d6ee57fa1b6b6b1bdb3b86142760",
+    "bytes": 3887770,
+    "export": "057e620f5c56de26.npz"
+   },
+   "period_a": {
+    "sha256": "475901362f96b030c82ace81a7ea313a60ba8b22e837884ec51c11340cdf2b08",
+    "bytes": 3889879,
+    "export": "475901362f96b030.npz"
+   },
+   "period_b": {
+    "sha256": "bb054cce6ade821b46c6ac9b9bfee0151ed7a1c0ef0082425d0ed2292a0586a0",
+    "bytes": 3808272,
+    "export": "bb054cce6ade821b.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "attackers",
+   "weights",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "root_seed",
+   "paired_model_seed",
+   "both_root_classes_present",
+   "execution_eligible",
+   "execution_ineligibility",
+   "files"
+  ],
+  "owners": [
+   "59.166.0.0",
+   "59.166.0.1",
+   "59.166.0.2",
+   "59.166.0.3",
+   "59.166.0.4",
+   "59.166.0.5",
+   "59.166.0.6",
+   "59.166.0.7",
+   "59.166.0.8",
+   "59.166.0.9",
+   "149.171.126.18",
+   "175.45.176.0",
+   "175.45.176.1",
+   "175.45.176.2",
+   "175.45.176.3"
+  ],
+  "weights": [
+   0.10029370782567053,
+   0.09968914011281302,
+   0.09993368435621605,
+   0.09925524390316387,
+   0.09982414891385843,
+   0.09886635062719655,
+   0.09536206558370927,
+   0.09478636767736463,
+   0.09583332271943389,
+   0.09440511640900365,
+   0.0030644450501443065,
+   0.004524068502956184,
+   0.006075396047044199,
+   0.0032920070544221326,
+   0.0047949352170032974
+  ]
+ },
+ {
+  "dir": "nf-trajectory-switch-v1/data/draw20261118/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "nf-trajectory-switch-v1/data/draw20261114/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "root_draw",
+   "partition_registry_sha256"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "cross-testbed-adaptive-v1/data/iot",
+  "roles": {
+   "cal": {
+    "sha256": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+    "bytes": 830653,
+    "keys": {
+     "x": [
+      [
+       27841,
+       113
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       27841
+      ],
+      "int8"
+     ],
+     "owner": [
+      [
+       27841
+      ],
+      "<U80"
+     ],
+     "family": [
+      [
+       27841
+      ],
+      "<U25"
+     ],
+     "model_input_hash": [
+      [
+       27841
+      ],
+      "|S64"
+     ],
+     "weight": [
+      [
+       27841
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       27841
+      ],
+      "<U80"
+     ],
+     "time": [
+      [
+       27841
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       27841
+      ],
+      "int64"
+     ]
+    },
+    "export": "2018b4c58d163329.npz"
+   },
+   "period_a": {
+    "sha256": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+    "bytes": 830653,
+    "export": "2018b4c58d163329.npz"
+   },
+   "period_b": {
+    "sha256": "88ca91ccb6677e120f5cd9060f825fcb5525ab6e03c7a075cfe0189ee442ab16",
+    "bytes": 341877,
+    "keys": {
+     "x": [
+      [
+       13612,
+       113
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       13612
+      ],
+      "int8"
+     ],
+     "owner": [
+      [
+       13612
+      ],
+      "<U80"
+     ],
+     "family": [
+      [
+       13612
+      ],
+      "<U18"
+     ],
+     "model_input_hash": [
+      [
+       13612
+      ],
+      "|S64"
+     ],
+     "weight": [
+      [
+       13612
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       13612
+      ],
+      "<U80"
+     ],
+     "time": [
+      [
+       13612
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       13612
+      ],
+      "int64"
+     ]
+    },
+    "export": "88ca91ccb6677e12.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support"
+  ],
+  "owners": [
+   "CTU-Honeypot-Capture-4-1",
+   "CTU-Honeypot-Capture-5-1",
+   "CTU-Honeypot-Capture-7-1/Somfy-01",
+   "CTU-IoT-Malware-Capture-3-1",
+   "CTU-IoT-Malware-Capture-34-1",
+   "CTU-IoT-Malware-Capture-42-1"
+  ],
+  "weights": [
+   0.017895185342991053,
+   0.06369833830421814,
+   0.0019173412867490413,
+   0.35051839227382475,
+   0.35051839227382475,
+   0.21545235051839226
+  ]
+ },
+ {
+  "dir": "cross-testbed-adaptive-v1/data/nf",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ },
+ {
+  "dir": "cross-testbed-adaptive-v1/data/cic",
+  "roles": {
+   "cal": {
+    "sha256": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+    "bytes": 8398628,
+    "keys": {
+     "x": [
+      [
+       49998,
+       82
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       49998
+      ],
+      "int8"
+     ],
+     "owner": [
+      [
+       49998
+      ],
+      "<U32"
+     ],
+     "family": [
+      [
+       49998
+      ],
+      "<U64"
+     ],
+     "model_input_hash": [
+      [
+       49998
+      ],
+      "|S64"
+     ],
+     "weight": [
+      [
+       49998
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       49998
+      ],
+      "<U16"
+     ],
+     "time": [
+      [
+       49998
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       49998
+      ],
+      "int64"
+     ]
+    },
+    "export": "1359583366e3978b.npz"
+   },
+   "period_a": {
+    "sha256": "1359583366e3978b4ee870e8769c162a81239d0cb4d521dad517b04ca38d5ad9",
+    "bytes": 8398628,
+    "export": "1359583366e3978b.npz"
+   },
+   "period_b": {
+    "sha256": "f740c31651cc2e29103043b7b4b98ebf5c0aba441696b0c640fd0fffe0038369",
+    "bytes": 52499053,
+    "keys": {
+     "x": [
+      [
+       361837,
+       82
+      ],
+      "float32"
+     ],
+     "y": [
+      [
+       361837
+      ],
+      "int8"
+     ],
+     "owner": [
+      [
+       361837
+      ],
+      "<U32"
+     ],
+     "family": [
+      [
+       361837
+      ],
+      "<U64"
+     ],
+     "model_input_hash": [
+      [
+       361837
+      ],
+      "|S64"
+     ],
+     "weight": [
+      [
+       361837
+      ],
+      "float64"
+     ],
+     "day": [
+      [
+       361837
+      ],
+      "<U16"
+     ],
+     "time": [
+      [
+       361837
+      ],
+      "int64"
+     ],
+     "original_index": [
+      [
+       361837
+      ],
+      "int64"
+     ]
+    },
+    "export": "f740c31651cc2e29.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support"
+  ],
+  "owners": [
+   "192.168.10.12",
+   "192.168.10.14",
+   "192.168.10.15",
+   "192.168.10.16",
+   "192.168.10.17",
+   "192.168.10.19",
+   "192.168.10.25",
+   "192.168.10.3",
+   "192.168.10.5",
+   "192.168.10.50",
+   "192.168.10.51",
+   "192.168.10.8",
+   "192.168.10.9"
+  ],
+  "weights": [
+   0.06654739411774542,
+   0.0641312889795509,
+   0.05974217064892069,
+   0.05352216295751334,
+   0.05249385523433712,
+   0.04476900697242798,
+   0.06179878609527313,
+   0.15788285652181183,
+   0.08344340963432374,
+   0.1701974685237514,
+   0.04007056030230575,
+   0.07195645994616015,
+   0.07344458006587858
+  ]
+ },
+ {
+  "dir": "nf-unsw-study-preflight-public-v1/data/draw-17",
+  "roles": {
+   "cal": {
+    "sha256": "51b9aa3115a5fd7ad85a865b90e34ed19992f23b1eee8fe7d0b2a8b6b7356f5a",
+    "bytes": 3896076,
+    "export": "51b9aa3115a5fd7a.npz"
+   },
+   "period_a": {
+    "sha256": "90f03b4758698c8c647075e6079543d24d8b391b4980c62c8db118e8fa874938",
+    "bytes": 8451007,
+    "export": "90f03b4758698c8c.npz"
+   },
+   "period_b": {
+    "sha256": "bc3505d024ab1d441ba0df2fb670ec6d1ade19ddb1d44d7388b9b7118dbd8088",
+    "bytes": 6792497,
+    "export": "bc3505d024ab1d44.npz"
+   }
+  },
+  "manifest_keys": [
+   "dataset",
+   "scope",
+   "owners",
+   "weights",
+   "attackers",
+   "rng_base",
+   "input_dim",
+   "root_rows",
+   "files",
+   "splits",
+   "root_support",
+   "paired_model_seed",
+   "execution_eligible",
+   "public_source",
+   "original_manifest_sha256",
+   "source_doi",
+   "transport_note"
+  ],
+  "owners": [
+   "192.168.1.152",
+   "192.168.1.184",
+   "192.168.1.190",
+   "192.168.1.193",
+   "192.168.1.194",
+   "192.168.1.195"
+  ],
+  "weights": [
+   0.1316622229999868,
+   0.11845094898318877,
+   0.18424565842883725,
+   0.1492315576422356,
+   0.1749906865844904,
+   0.24141892536126117
+  ]
+ }
+]

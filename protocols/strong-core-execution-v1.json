@@ -1,0 +1,110 @@
+{
+  "id": "strong-core-baseline-v1",
+  "status": "development diagnostic; freeze execution plan and source hashes before training",
+  "purpose": "Measure transfer and adaptive-attack failure modes on three distinct source testbeds, before proposing a new defense.",
+  "datasets": [
+    "nf",
+    "cic",
+    "iot"
+  ],
+  "root": "384 trusted rows; canonical previous NF/IoT partitions. CIC deterministic near-equal owner allocation without labels, seed20261106. Private training is exact complement. Same partitions for all arms.",
+  "model": "input-128-ReLU-64-ReLU-1, raw logits",
+  "training": {
+    "rounds": 600,
+    "local_steps": 10,
+    "batch_size": 256,
+    "learning_rate": 0.01,
+    "global_learning_rate": 1.0,
+    "momentum": 0,
+    "seeds": [
+      17
+    ],
+    "checkpoints": [
+      0,
+      100,
+      300,
+      600
+    ]
+  },
+  "methods": [
+    "fedavg",
+    "trimmed_mean_f1",
+    "fltrust",
+    "fltrust_server",
+    "root_only"
+  ],
+  "method_provenance": "All are existing baselines. fltrust_server means original FLTrust-withServer, not original FLTrust-Server (root-only). Trim one coordinate maximum/minimum for one malicious client.",
+  "conditions": [
+    "clean",
+    "scaled_flip_a",
+    "scaled_flip_b",
+    "adaptive_deviation_a",
+    "adaptive_deviation_b",
+    "multistart_a",
+    "multistart_b",
+    "local_loss_a",
+    "local_loss_b"
+  ],
+  "attacker_selection": "NF .152/.195 retained from previous matrix. CIC .50 attack-rich and .3 largest benign-only owner by source counts. IoT captures34/42 retained from previous matrix. Selection does not inspect new outcomes.",
+  "static_attack": "Flip every private binary label on one client and divide its submitted delta by original aggregation weight. Trusted root excluded.",
+  "adaptive_attack": {
+    "name": "omniscient aggregation-aware projected update-deviation attack",
+    "provenance": "Instantiates the opposite-clean-update optimization objective from Fang et al. USENIX2020 and FLTrust NDSS2021 using exact autodifferentiation and a declared L2 budget. It is not a new attack claim or exact reproduction of their optimizer.",
+    "knowledge": "Strong upper-bound attacker observes all current clean client updates and actual trusted root update, model and aggregation rule. No evaluation inputs, labels, scores or future data in optimization. This oracle knowledge is not assumed available to a practical malicious client.",
+    "capacity": "Replace exactly one client update each round; all root/private labels remain clean. L2 norm <=3 times median norm of all clean client updates. This norm constraint applies to all methods.",
+    "objective": "Maximize dot(sign(clean aggregate), clean aggregate - attacked aggregate)/parameter_count. Delta sign convention is model += aggregate.",
+    "initializations": [
+      "clipped honest update",
+      "negative clean aggregate at radius",
+      "negative clean coordinate-sign at radius",
+      "root direction at radius when root exists"
+    ],
+    "optimization": "Choose highest-objective initial point. Eight projected normalized gradient-ascent steps with step radius/4; keep best among every evaluated iterate including initial points. Report full objective gains and constraint checks each round.",
+    "steps": 8,
+    "radius_multiplier": 3.0,
+    "step_radius_fraction": 0.25,
+    "limits": "One-round surrogate can be weak despite successful optimization. A non-damaging attack is not proof of security. Follow up with local-information loss attack, alternate objectives, larger optimization budgets and transfer attacks before method claims."
+  },
+  "diagnostics": "At rounds1/100/300/600 log client and root update norms, trust weights, and cosines against negative root benign/attack loss gradients at the common pre-update model. These are associations; later interventions needed for mechanism claims.",
+  "evaluation": "Final600 fixed, no best checkpoint selection. Full per-period metrics and day/owner/family support; empirical1%FPR frontier diagnostic only. Historical calibration and fixed0 logit separately report actual FPR/recall. For CIC/IoT cal==period_a is in-sample calibration, not deployment validation. Compare actual attacks against same-method clean and root-only, retaining failures and near-zero floors.",
+  "independence": "Three separate testbeds, not three replicated institutions. NF and CIC time and family composition change jointly; IoT source versus new captures is cross-capture transfer. Known data are explicitly development, not blind testing.",
+  "confirmation": "Do not load CIC Friday or IoT captures21/44/unscored tails until candidate/protocol/comparators are frozen.",
+  "resources": {
+    "gpu_nodes": [
+      "worker-a",
+      "worker-b"
+    ],
+    "one_owned_worker_per_node": true,
+    "minimum_free_GiB": 3,
+    "allocator_fraction": 0.08,
+    "cpu_threads": 2,
+    "job_timeout_seconds": 1200
+  },
+  "novelty_gate": "Do not rename root weighting, multiple roots, a loss-based filter, server inclusion or threshold recalibration as a new method without direct prior-art comparison and evidence beyond strong ordinary baselines.",
+  "strong_attack": {
+    "id": "strong-adaptive-attack-v1",
+    "status": "Implementation prepared; not yet GPU-preflighted or trained.",
+    "motivation": "Synthetic checks found the original best-start-only optimization can stall even when another start attains a larger objective. This is an optimizer limitation, not evidence of defense robustness.",
+    "conditions": [
+      "multistart_a",
+      "multistart_b",
+      "local_loss_a",
+      "local_loss_b"
+    ],
+    "budget": "One existing controlled client replaces its update. The same L2 radius=3 times lower median current clean-client update norm. No increase in perturbation norm, and no evaluation-label access.",
+    "knowledge": "Omniscient current clean updates, actual trusted reference and any defense-specific basis. Loss mode uses only a fixed 256-row or smaller subset of the attacker's own private training rows with true labels. The attacker does not receive calibration or evaluation data.",
+    "objectives": {
+      "multistart": "Original signed clean-aggregate deviation, differentiated through the actual defended aggregation map.",
+      "local_loss": "Class-balanced BCE over labels present in the fixed attacker-owned batch, evaluated through a differentiable functional MLP at the next global model after defended aggregation. No hypothetical server averaging surrogate. This is one-step,not full-training unrolling."
+    },
+    "starts": "Retain the original attack winner,own clean update,negative clean aggregate,negative aggregate sign,root,8independent Gaussian starts with two radii,and2basis-complement starts. Project all to the same ball. Model and local-batch RNGs are unaffected.",
+    "steps_per_start": 32,
+    "step_schedule": "Normalized ascent by radius/4 for first half and radius/16 for second half. Keep best of every initial point and every iterate. Record all attained values and gradient stalls.",
+    "verification": "8known linear optima,functional MLP logit equality,finite derivatives of loss,18aggregation comparisons and constructed constrained-stall example passed on both CPU runtimes. Full-width GPU preflight,clean-model regression,and all roundwise constraints must pass before a matrix.",
+    "interpretation": "Stronger finite search within an unchanged norm budget;not a global optimum or novel attack. Native public-history attacks use a different uncapped budget and must remain separately reported.",
+    "reserves": "No final confirmation data reads. All tuning and screening remain on existing development data."
+  },
+  "stage_scope": "Original FLTrust and trimmed mean only; stronger BOBA/public-history/multi-seed confirmation are not completed by this stage. No promoted candidate.",
+  "hypothesis_sha256": "43b666b26c640d60d419e4313e1ccc45cf6d63062f45cf285e5df4f1dead6d4f",
+  "prototype_rejection_sha256": "0ce42029e72348917951748fd73e1fd59e7ee59221821c8c8abfbed804692222"
+}

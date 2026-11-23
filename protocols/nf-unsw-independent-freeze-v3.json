@@ -1,0 +1,2462 @@
+{
+  "at": "2026-11-07T12:35:40.447550+00:00",
+  "status": "complete_scientific_freeze",
+  "dataset": "NF-UNSW-NB15-v3",
+  "purpose": "Independent prospective test of existing defenses and calibrated-ranking failure mechanisms. This baseline study is not confirmation of a future outcome-adapted novel method.",
+  "methods": {
+    "root_only": "Trusted384rows only; clean condition only.",
+    "fedavg": "Sourceprivate population weights.",
+    "trimmed_mean_f1": "Coordinate-wise remove largest/smallest one; equal retained-client weights.",
+    "fltrust": "Nonnegative cosine trust and rootnorm rescaling; no server inclusion.",
+    "boba": "Binary class affine1D, f1,pmin-.5,20iterations,author fallback; class-specific root updates.",
+    "fedval_paper_parameters": "Frozen binary adaptation, paper parameter convention.",
+    "fedval_author_scoring": "Frozen binary adaptation, author scoring convention."
+  },
+  "attacks": {
+    "conditions": [
+      "clean",
+      "scaled_flip_a",
+      "scaled_flip_b",
+      "multistart_a",
+      "multistart_b",
+      "local_loss_a",
+      "local_loss_b"
+    ],
+    "selection": "Two largest sourceeligible endpoint clients by trainingperiod record count, IPv4numeric tie break; one malicious client per run. No outcome or label-conditioned choice.",
+    "static": "All private binarylabels of selectedclient flipped, submittedupdate divided by originalclient aggregationweight; trustedrootexcluded. Staticattack has no commonadaptiveL2 cap.",
+    "adaptive_capacity": "Replace exactly one update eachround. L2 <=3 times lower-median cleanclient updatenorm. Same feasiblebudget for all methods.",
+    "knowledge": "Omniscient currentcleanclientupdates, model, root and defense internals; local-loss mode additionallyfixed ownprivate batch. No calibration/evaluation features or labels in attack objectives.",
+    "objectives": [
+      "Signed clean aggregate deviation",
+      "Class-balanced private-source BCE after the actual aggregate"
+    ],
+    "optimization": "32step multistartPGD withlegacy8step warmup; core15starts(13withoutrootbasis); BOBAadds2classstarts; FedVal15starts plus2DErestarts64generations F.5 CR.9 seeds72311+round and72315+round. Startsseed9126+round. Keep earliest tiedbest.",
+    "budget_disclosure": "Equal normconstraint, unequal optimizerqueries: at15corestarts, FedAvg/trimmedmean997 andFLTrust998 totalaggregationcalls perround; BOBA1129 at17starts; FedVal2969 at15starts. Rootbasisabsent reduces2starts. Countsincludelegacywarmup andclean/referencecalls. No equal-search-budget oroptimal-attack claim.",
+    "numeric_policy": "Prospectivecore/BOBAlegacy projection uses float64norm/factor thenfloat32output to fix observed CPU budget excess; unchanged L2 tolerance2e-6. Old developmentrunnerresults retained separately."
+  },
+  "seeds": {
+    "paired_model_root": [
+      {
+        "model_seed": 17,
+        "root_seed": 20261117
+      },
+      {
+        "model_seed": 29,
+        "root_seed": 20261129
+      },
+      {
+        "model_seed": 43,
+        "root_seed": 20261143
+      }
+    ],
+    "interpretation": "Three paired model/root draws, not isolated modelseed uncertainty or independent datasets."
+  },
+  "training": {
+    "model": "input-128-ReLU-64-ReLU-1 logits",
+    "rounds": 600,
+    "local_steps": 10,
+    "batch_size": 256,
+    "learning_rate": 0.01,
+    "global_learning_rate": 1.0,
+    "momentum": 0,
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "checkpoints": [
+      0,
+      100,
+      300,
+      600
+    ]
+  },
+  "endpoints": {
+    "primary": "Step600 weighted recall and actual falsepositive rate for periodA and periodB separately, threshold determined solely by historicalcalibration. Full disclosure acrossall3pairedseeds and7conditions.",
+    "eligibility": "Reportrecall as budget-qualified only when actualFPR<=.01 under both savedGPU and independently recomputedfloat64 score/threshold routes; unsupportedclass denominators are null. Failure to meetbudget is failure, not ranking by recall alone.",
+    "attack_summary": "Reportall6attackconditions and the worstattainedrecall within eachpairedseed, plusFPR failures. Do not select a favorable attacker/objective. Cleanbaselinequalification displayed separately.",
+    "secondary": "Fixedlogit0; unweighted andowner/day/family counts andrates; thresholds recalibrated on evaluationdata andpooled/dayoracle frontiers only explicitlylabeled diagnostics.",
+    "uncertainty": "Reportpairedseed mean/range and individualresults. Rows andendpoints are correlated, no IID-row confidenceintervals or 3-dataset replication claim. No posthoc significancethreshold."
+  },
+  "threshold_policy": "Strict score > weighted empirical99thpercentile of benigncalibration only at each checkpoint; ties belowalarm. Primarycheckpoint fixed600, no checkpointselection. Threshold is not recalibrated with A/B labels.",
+  "preprocessing": "Public53field schema exact; remove6identity/time/sourceport/DNSqueryID fields.45 numeric fields: nonfinite/blank treatedmissing, finite negatives rejected. Train-only finite median (allmissing fallback0), log1p/popstd/clipping8, exactconstant meanfirst/std1. Append45alwayspresent unscaled binary nonfinite indicators. ExactDecimal PROTOCOL/L7 train-only vocab+UNKNOWN. All fit on retainedtrainingrows only, unweighted, no labels. Independent raw verifier reconstructs allselectedmetadata/values. Compute loggedfeature mean/popstd using contiguous columnarrays tolimit floatingpoint accumulation error; independent scalarfsum check retains2e-13relative/absolutetolerance.",
+  "partitioning": "Globalcompletion nearest-rank cuts .5/.7/.85 determinedwithoutlabels; allties sameside, crossingflowsremoved andlaterstarts>=previouscut+120000ms. Client selection uses only sourceperiodcounts; endpointclients are not institutions. Root384 near-equalownerallocation withpredefinedseeds; private exactcomplement. Per-role sourceIP/day retention bySplitMix64priority ofrowID; sourceIPonly cells fortraining. Weight originalcellcount/retainedcount.",
+  "exclusions": "Reject schema/invalidmetadata, raw>3000000 rows, fewerthan3sourceeligibleowners, emptyroles orinsufficientprivatecomplement. Reject affectedprespecifieddraw ifrootlacksaclass orcalibrationhasnobenign; no redraw orlabelbalancing. Keep unsupported evaluationdenominators null. Record excludedsourceclients/timegap counts. Unknownfamilies retained aslabels ifbinaryBenign consistency holds, width<=64.",
+  "selection_rule": "No performance-tuned hyperparameters, reseeding, featureselection, early stopping ordiscardingfailures onthisdataset. Model/attack/software corrections require versionedprospectiveamendments and accessdisclosure. Do not use these outcomes as blindconfirmation for any lateradaptivelydesignedmethod.",
+  "resource_limits": {
+    "nodes": [
+      "worker-a",
+      "worker-b"
+    ],
+    "one_owned_worker_per_node": true,
+    "free_gpu_GiB": 3,
+    "gpu_allocator_fraction": 0.08,
+    "cpu_threads": 2,
+    "nice": 10,
+    "job_timeout_seconds": 36000,
+    "local_disk_free_GiB": 8,
+    "maximum_owners": 16,
+    "no_automatic_training_retry": true,
+    "original42jobmatrix_has_priority": true
+  },
+  "prior_access_disclosure": "Original completefreeze preceded first CSV open. Failedpreparation buffered all CSV text, including labels and evaluationfeatures, during sampling. Training numeric validity was then checked. No retained label arrays/class counts, model fitting or predictions existed. Followup audits used metadata and selectedtraining numeric fields only; fullCSV bytes were alsohashed against packageinternal SHA1. SameNetFlowextractor asexistingtestbeds; endpointclients are not institutions. Currentamendment precedes any realdataset model training/predictions. v2preparation completed all retainedfeatures/labels andsource-rootclasssupport checks. Independentverifier rebuilt allmetadata andretainedrawrowdictionaries before failing momentcheck. No realmodel fitting/prediction. Originalv1/v2 artifacts andfailures retained.",
+  "preparation_specification": {
+    "chunk_rows": 50000,
+    "maximum_raw_rows": 3000000,
+    "minimum_source_rows_per_owner": 1024,
+    "maximum_owners": 16,
+    "minimum_owners": 3,
+    "sampling_seed": 20261107,
+    "sampling_caps": {
+      "train": 8192,
+      "cal": 2000,
+      "period_a": 2000,
+      "period_b": 2000
+    },
+    "root_rows": 384,
+    "rng_base": 20267000,
+    "draws": [
+      {
+        "model_seed": 17,
+        "root_seed": 20261117
+      },
+      {
+        "model_seed": 29,
+        "root_seed": 20261129
+      },
+      {
+        "model_seed": 43,
+        "root_seed": 20261143
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "dataset": "unsw",
+      "method": "root_only",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "clean",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_a",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_b",
+      "seed": 17
+    },
+    {
+      "dataset": "unsw",
+      "method": "root_only",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "clean",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_a",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_b",
+      "seed": 29
+    },
+    {
+      "dataset": "unsw",
+      "method": "root_only",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedavg",
+      "condition": "local_loss_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "trimmed_mean_f1",
+      "condition": "local_loss_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fltrust",
+      "condition": "local_loss_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "boba",
+      "condition": "local_loss_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_paper_parameters",
+      "condition": "local_loss_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "clean",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "scaled_flip_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "multistart_b",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_a",
+      "seed": 43
+    },
+    {
+      "dataset": "unsw",
+      "method": "fedval_author_scoring",
+      "condition": "local_loss_b",
+      "seed": 43
+    }
+  ],
+  "execution_gate": {
+    "real_records_may_be_opened_for_frozen_preparation": true,
+    "source_preparation_verification_required": true,
+    "original42_complete_before_new_gpu_jobs": true,
+    "both_gpu_preflight_required_before_full_matrix": true,
+    "all_prespecified_draws_must_be_eligible": true,
+    "no_full_experiment_launched_by_freezing": true
+  },
+  "novel_method_validated": false,
+  "supersedes": "protocols/nf-unsw-independent-study-design-v1.json",
+  "runtime_audit": "43CPU2roundsyntheticcases passed; originalfailedprojectionattempt retained. Newauditor metadata corrects corewarmupquerycounts and assertsCPU/CUDAexecution identity; no training rerun for audit-only changes.",
+  "supersedes_sha256": "669b0b24983ea07b21d00a2ed977de9395a6ba7e4e947a3c4314827f15a26e8b",
+  "preprocessing_amendment": "protocols/nf-unsw-nonfinite-preprocessing-amendment-v1.json",
+  "preprocessing_amendment_sha256": "d77f53e199c39288dfbc139a18af134295763edca114828096f459f664b34091",
+  "arithmetic_amendment": "protocols/nf-unsw-preprocessing-reduction-amendment-v1.json",
+  "arithmetic_amendment_sha256": "f0d4181d1f2cc91fc50ca4e24f6e0d0e197ec0ed1af3d75d7320613218f600d1",
+  "archive_sha256": "6d51554df43e324ba8d68fc31a02a83d860ba0a3a93d63320a4a6fc314c9cdfd",
+  "archive_bytes": 110825147,
+  "archive_path": "datasets/fedids/nf-unsw-nb15-v3/NF-UNSW-NB15-v3.zip",
+  "acquisition_receipt_path": "datasets/fedids/nf-unsw-nb15-v3/acquisition-verified-v4.json",
+  "acquisition_receipt_sha256": "3dacd97cd19ed8421c773f1a485fbdd670b06a8add41c7f433dd884d12bb4a75",
+  "archive_inventory": [
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/FurtherInformation.txt",
+      "bytes": 143,
+      "compressed_bytes": 117,
+      "crc32_recorded": 1354665756
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/bag-info.txt",
+      "bytes": 839,
+      "compressed_bytes": 475,
+      "crc32_recorded": 305533699
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/bagit.txt",
+      "bytes": 55,
+      "compressed_bytes": 55,
+      "crc32_recorded": 1269362063
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/manifest-sha1.txt",
+      "bytes": 136,
+      "compressed_bytes": 116,
+      "crc32_recorded": 2111664487
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/tagmanifest-sha1.txt",
+      "bytes": 164,
+      "compressed_bytes": 121,
+      "crc32_recorded": 3524527895
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/data/NF-UNSW-NB15-v3.csv",
+      "bytes": 577360958,
+      "compressed_bytes": 110821891,
+      "crc32_recorded": 3206268078
+    },
+    {
+      "name": "f7546561558c07c5_NFV3DATA-A11964_A11964/data/NetFlow_v3_Features.csv",
+      "bytes": 2935,
+      "compressed_bytes": 994,
+      "crc32_recorded": 2360821296
+    }
+  ],
+  "csv_member": "f7546561558c07c5_NFV3DATA-A11964_A11964/data/NF-UNSW-NB15-v3.csv",
+  "checksum_scope": "LocalcompressedSHA256 plusHTTPS/ETag/length andpackageinternalCSV SHA1 agreement; packageinternal consistency isnot anindependentexternaltrustanchor.",
+  "design": "protocols/nf-unsw-independent-study-design-v4.json",
+  "design_sha256": "df7cf21baaa3af1bac0a2ecfce85479ec9fb1f106d16937cdda7aedfad414133",
+  "artifact_paths": {
+    "synthetic_validation": "research/fedids-jisa/evidence/nf-unsw-local-cpu-reuse-v4/verification.json",
+    "preparation_validation": "research/fedids-jisa/evidence/nf-unsw-preparation-synthetic-v4/verification.json",
+    "preparation_negative_controls": "research/fedids-jisa/evidence/nf-unsw-preparation-negative-controls-v1/verification.json",
+    "projection_correction": "research/fedids-jisa/evidence/nf-unsw-projection-correction-verification-v2.json",
+    "auditor_negative_controls": "research/fedids-jisa/evidence/nf-unsw-auditor-negative-controls-v3.json",
+    "core_query_accounting": "research/fedids-jisa/evidence/nf-unsw-core-query-count-v1.json",
+    "archive_contract_validation": "research/fedids-jisa/evidence/nf-unsw-archive-contract-v1.json",
+    "cohort_contract": "research/fedids-jisa/experiments/nf_unsw_cohort_contract_v4.py",
+    "preparer": "research/fedids-jisa/experiments/prepare_nf_unsw_prospective_v7.py",
+    "runner": "research/fedids-jisa/experiments/launch_nf_unsw_study_v1.py",
+    "verifier": "research/fedids-jisa/experiments/verify_nf_unsw_run_v3.py",
+    "freezer": "research/fedids-jisa/experiments/freeze_nf_unsw_study_v3.py",
+    "scientific_design": "research/fedids-jisa/protocols/nf-unsw-independent-study-design-v4.json",
+    "execution_layout": "research/fedids-jisa/protocols/nf-unsw-execution-layout-v3.json",
+    "resource_access": "not-distributed/connection-module.py",
+    "prior42queue": "research/fedids-jisa/protocols/fedval-hybrid-full-queue-v1.json",
+    "preprocessing_amendment": "research/fedids-jisa/protocols/nf-unsw-nonfinite-preprocessing-amendment-v1.json",
+    "source_quality_audit": "research/fedids-jisa/evidence/nf-unsw-source-feature-audit-v2.json",
+    "previous_freeze": "research/fedids-jisa/protocols/nf-unsw-independent-freeze-v1.json",
+    "previous_preparation_access": "datasets/fedids/nf-unsw-nb15-v3/prepared-independent-v1-access-start.json",
+    "previous_preparation_log": "tmp/fedids-jisa/nf-unsw-real-preparation-v1.log",
+    "package_internal_consistency": "research/fedids-jisa/evidence/nf-unsw-package-metadata-v1.json",
+    "preparation_test_source": "research/fedids-jisa/experiments/verify_nf_unsw_preparation_synthetic_v4.py",
+    "arithmetic_amendment": "research/fedids-jisa/protocols/nf-unsw-preprocessing-reduction-amendment-v1.json",
+    "reduction_diagnostic": "research/fedids-jisa/evidence/nf-unsw-preprocessing-reduction-audit-v2.json",
+    "previous_quality_freeze": "research/fedids-jisa/protocols/nf-unsw-independent-freeze-v2.json",
+    "previous_moment_verification_failure": "tmp/fedids-jisa/nf-unsw-real-preparation-verifier-v2.log",
+    "source__nf_unsw_core_runner_v2.py": "research/fedids-jisa/experiments/nf_unsw_core_runner_v2.py",
+    "source__nf_unsw_cohort_contract_v2.py": "research/fedids-jisa/experiments/nf_unsw_cohort_contract_v2.py",
+    "source__nf_unsw_cohort_contract_v3.py": "research/fedids-jisa/experiments/nf_unsw_cohort_contract_v3.py",
+    "source__launch_cross_testbed_v1.py": "research/fedids-jisa/experiments/launch_cross_testbed_v1.py",
+    "source__fedval_attack_v1.py": "research/fedids-jisa/experiments/fedval_attack_v1.py",
+    "source__fedval_hybrid_attack_v1.py": "research/fedids-jisa/experiments/fedval_hybrid_attack_v1.py",
+    "source__prepare_nf_root_seed_v1.py": "research/fedids-jisa/experiments/prepare_nf_root_seed_v1.py",
+    "source__multistart_attack_reference_v1.py": "research/fedids-jisa/experiments/multistart_attack_reference_v1.py",
+    "source__nf_unsw_archive_contract_v1.py": "research/fedids-jisa/experiments/nf_unsw_archive_contract_v1.py",
+    "source__continue_fedval_hybrid_preflight_v2.py": "research/fedids-jisa/experiments/continue_fedval_hybrid_preflight_v2.py",
+    "source__source_logistic_reference_v1.py": "research/fedids-jisa/experiments/source_logistic_reference_v1.py",
+    "source__verify_nf_unsw_fedval_v1.py": "research/fedids-jisa/experiments/verify_nf_unsw_fedval_v1.py",
+    "source__fedval_torch_reference_v1.py": "research/fedids-jisa/experiments/fedval_torch_reference_v1.py",
+    "source__persistent_remote_job_v1.py": "research/fedids-jisa/experiments/persistent_remote_job_v1.py",
+    "source__launch_trajectory_switch_v1.py": "research/fedids-jisa/experiments/launch_trajectory_switch_v1.py",
+    "source__nf_unsw_boba_runner_v2.py": "research/fedids-jisa/experiments/nf_unsw_boba_runner_v2.py",
+    "source__prepare_nf_unsw_prospective_v7.py": "research/fedids-jisa/experiments/prepare_nf_unsw_prospective_v7.py",
+    "source__nf_unsw_cohort_contract_v4.py": "research/fedids-jisa/experiments/nf_unsw_cohort_contract_v4.py",
+    "source__fedval_hybrid_attack_v3.py": "research/fedids-jisa/experiments/fedval_hybrid_attack_v3.py",
+    "source__fedval_reference_v1.py": "research/fedids-jisa/experiments/fedval_reference_v1.py",
+    "source__differential_evolution_l2_v1.py": "research/fedids-jisa/experiments/differential_evolution_l2_v1.py",
+    "source__launch_aggregate_counterfactual_v1.py": "research/fedids-jisa/experiments/launch_aggregate_counterfactual_v1.py",
+    "source__launch_nf_unsw_study_v1.py": "research/fedids-jisa/experiments/launch_nf_unsw_study_v1.py",
+    "source__verify_nf_unsw_preparation_v3.py": "research/fedids-jisa/experiments/verify_nf_unsw_preparation_v3.py",
+    "source__subspace_selective_reference_v1.py": "research/fedids-jisa/experiments/subspace_selective_reference_v1.py",
+    "source__prepare_nf_unsw_prospective_v6.py": "research/fedids-jisa/experiments/prepare_nf_unsw_prospective_v6.py",
+    "source__collect_fedval_full42_v4.py": "research/fedids-jisa/experiments/collect_fedval_full42_v4.py",
+    "source__evaluate_cross_testbed_v1.py": "research/fedids-jisa/experiments/evaluate_cross_testbed_v1.py",
+    "source__verify_aggregate_counterfactual_v1.py": "research/fedids-jisa/experiments/verify_aggregate_counterfactual_v1.py",
+    "source__verify_nf_head_backbone_v1.py": "research/fedids-jisa/experiments/verify_nf_head_backbone_v1.py",
+    "source__inspect_strong_boba_matrix_recovery_v1.py": "research/fedids-jisa/experiments/inspect_strong_boba_matrix_recovery_v1.py",
+    "source__fedval_stateful_v1.py": "research/fedids-jisa/experiments/fedval_stateful_v1.py",
+    "source__nf_unsw_boba_reference_v2.py": "research/fedids-jisa/experiments/nf_unsw_boba_reference_v2.py",
+    "source__cross_testbed_runner_v1.py": "research/fedids-jisa/experiments/cross_testbed_runner_v1.py",
+    "source__verify_nf_unsw_preparation_v4.py": "research/fedids-jisa/experiments/verify_nf_unsw_preparation_v4.py",
+    "source__nf_unsw_boba_attack_v2.py": "research/fedids-jisa/experiments/nf_unsw_boba_attack_v2.py",
+    "source__nf_source_head_refit_v1.py": "research/fedids-jisa/experiments/nf_source_head_refit_v1.py",
+    "source__verify_nf_unsw_run_v3.py": "research/fedids-jisa/experiments/verify_nf_unsw_run_v3.py",
+    "source__nf_unsw_fedval_runner_v1.py": "research/fedids-jisa/experiments/nf_unsw_fedval_runner_v1.py",
+    "protocol__preflight": "research/fedids-jisa/protocols/nf-unsw-preflight-v3.json",
+    "protocol__matrix": "research/fedids-jisa/protocols/nf-unsw-matrix-v3.json",
+    "runtime_reference__worker-a": "research/fedids-jisa/evidence/fedval-hybrid-full-v1/worker-a/artifacts/results/nf-fedval_paper_parameters-clean-17/result.json",
+    "runtime_reference__worker-b": "research/fedids-jisa/evidence/fedval-hybrid-full-v1/worker-b/artifacts/results/nf-fedval_author_scoring-clean-17/result.json"
+  },
+  "artifact_sha256": {
+    "synthetic_validation": "5c3539e7209e83b126f1807cc539267412b2c86bc0d799d91a46438f412d517a",
+    "preparation_validation": "c53a0770e4f3bbcf754f4fb470302c2d75021d19316158285d7f6433aace2fa8",
+    "preparation_negative_controls": "10231265ff8a74beb7e6ee825bc74ac85132dce4a3da4dabdf75eb9d02497051",
+    "projection_correction": "a0c8faa0ee27845fccdeb37a491158b96fb837825a9b9e4a766a2b69f1447164",
+    "auditor_negative_controls": "8e0051975953f8c6692b2d5169fe62e63a5d4cd9f8f86b93d13209899cfe2d6b",
+    "core_query_accounting": "e8cf2742851d59248425c4f864d1daa7f09c5a2199cdd6d4e8331999452e95c5",
+    "archive_contract_validation": "8e190ad13f1196b6bd81af05e6fc69dce56238cf8cee9b17cc3d6ce95893cece",
+    "cohort_contract": "1008a6b269f26b09173af465f3664bf920508d93178a25166820150d3ab2e0e3",
+    "preparer": "2a7a9be8d37105357afcb6017abe97358fa35bf0fb83fb72205f89f38372cfdc",
+    "runner": "773f647078c960836f8b8b48ec20cd60fd38b40ad0d234c14b459d4f0652b24d",
+    "verifier": "25a3e909bfb7357b93a745e0a0363974459c9acc3aba678fa523a5cbad1d6beb",
+    "freezer": "65139f862286b3a699ef964cc3e44baa375f511502e9708011fc3ce811d3c6f4",
+    "scientific_design": "df7cf21baaa3af1bac0a2ecfce85479ec9fb1f106d16937cdda7aedfad414133",
+    "execution_layout": "cdc0f071b81a1171a7f141ca77d8f2d741e06e79d67ff4b9c418006a6249cca8",
+    "resource_access": "205c640f8dc9e597c473d8c2f2776a5c29acd29ddc96459520c355633cdceabf",
+    "prior42queue": "8980274aeb7acb3b1cc97efe2a9523ae523880004403ed8ab13113dbeb2a2e89",
+    "preprocessing_amendment": "d77f53e199c39288dfbc139a18af134295763edca114828096f459f664b34091",
+    "source_quality_audit": "449be692459923adfbf1b16dd7262d850dc659b783a5b11929a990c58375d41a",
+    "previous_freeze": "273c395be265c99fc20b28b69a24783ada60c5f59882be16d2952b0b7e36e468",
+    "previous_preparation_access": "44e24d489b0f54e928cdb0c42bf6b095dc4b9532aa510fba07a652fa96f1dc1b",
+    "previous_preparation_log": "63172c101a47783372df9dabf25dcd8f3e4224adcc33ed98a6ba9f3ee5548093",
+    "package_internal_consistency": "9718974d940431016ac6cfdf60198f06d38de953f732c041aa476d94c5fb1dc6",
+    "preparation_test_source": "e9f4ad679aeb623a596ec57049b05136c8d008f5479e0ddec8702431ccf83ebc",
+    "arithmetic_amendment": "f0d4181d1f2cc91fc50ca4e24f6e0d0e197ec0ed1af3d75d7320613218f600d1",
+    "reduction_diagnostic": "6a932ca6e719160297609283cdacd124207ae1d6d5415d203bdb07f1f1f2470c",
+    "previous_quality_freeze": "4ac0f19bbab86a1ef554690ace52be7b2b8e1ddd0b8ce10a7ebf08c7c51fc0b3",
+    "previous_moment_verification_failure": "ad7b496c4d831fe90fe3b03fb4f4405b7e0c93a9335d7d7876afacb9f3415a5d",
+    "source__nf_unsw_core_runner_v2.py": "1e3089c4623591129a9a0147656c728127d0dfa3fcb9c749ccf0c7f6be00d999",
+    "source__nf_unsw_cohort_contract_v2.py": "c41c19f7dadf941c8403c8212ee0be829e578b40d3499ea30a37f939d7e17c52",
+    "source__nf_unsw_cohort_contract_v3.py": "26de9f1a390fc2b3644b162df0bb8653fb08ea7ad24daa5f41a7f47366704894",
+    "source__launch_cross_testbed_v1.py": "afa4db2c223d231c5d6baa602aad0e95301b10dae9d6e748af9ea54c7f2027dd",
+    "source__fedval_attack_v1.py": "65d1333203e5b64ad4f155594b5cbdfcf2bdfd131df72a3de627f98230efb930",
+    "source__fedval_hybrid_attack_v1.py": "7e5926193daff570d81459793bfa686a130e5a3d0104370a50a92149eab82447",
+    "source__prepare_nf_root_seed_v1.py": "5c1ba884ff1b5d047538f356490da083136b3d0dd7754fa20bbdfb1fabf174d5",
+    "source__multistart_attack_reference_v1.py": "d0a197c20e27cdb68bbb1e47a9a55914adf974a3840ebd880db963e78b4b27fc",
+    "source__nf_unsw_archive_contract_v1.py": "33782f4efd3506d790a70fab5591e2c11c5c380e4cc660a4c718e261f4ce446d",
+    "source__continue_fedval_hybrid_preflight_v2.py": "a6ef71e1c83d1ae93a57c973306072864119a17289351ba2357fd7b1b05274e3",
+    "source__source_logistic_reference_v1.py": "fade3c32e341e3c859469343df49fe053f99554a8f77918ca104fddc1102f5b7",
+    "source__verify_nf_unsw_fedval_v1.py": "f218d790d3873462af3bc7a0a5cc85fb95cd770f9ab64c0b4c78dd6da611a94b",
+    "source__fedval_torch_reference_v1.py": "6018c2b1b6c7752e6e6c36d3bcc2a224abfba7e12aa5c289b61f6e9a86e2cd4b",
+    "source__persistent_remote_job_v1.py": "a56752047a1eddcf4a7dc6ef599707c873276ecab12ddd6bd24aad4cf1a0fe1c",
+    "source__launch_trajectory_switch_v1.py": "01c3bcaba411bd06e8be7d9373db0af540f32831aeb6bd79d387efd82011b51f",
+    "source__nf_unsw_boba_runner_v2.py": "17f51cf4f80d6c2522f9986b35c96cd1303da035e272d543dc63220700f93029",
+    "source__prepare_nf_unsw_prospective_v7.py": "2a7a9be8d37105357afcb6017abe97358fa35bf0fb83fb72205f89f38372cfdc",
+    "source__nf_unsw_cohort_contract_v4.py": "1008a6b269f26b09173af465f3664bf920508d93178a25166820150d3ab2e0e3",
+    "source__fedval_hybrid_attack_v3.py": "a136529d5c764f7e95b14e80d2301ce4e7c5ed9a7abd2e3f828e5e38fb44cabf",
+    "source__fedval_reference_v1.py": "fd8fc8feaefbb89c048eeb506ad8421d28b80f568ed45fe6dd25dc24dcbba43f",
+    "source__differential_evolution_l2_v1.py": "c7df5dfe582bbb0b9fa9296998729f3d18a77c5c3631f32e862c6c4ef6898729",
+    "source__launch_aggregate_counterfactual_v1.py": "336404f2f38329ae8f4681224d1d9a423dab84f7a2b5971d6b353c649dd4169b",
+    "source__launch_nf_unsw_study_v1.py": "773f647078c960836f8b8b48ec20cd60fd38b40ad0d234c14b459d4f0652b24d",
+    "source__verify_nf_unsw_preparation_v3.py": "129c276d332f09383d24d0781b999f023ea50fe8a470785c6e364f5b0fb589e0",
+    "source__subspace_selective_reference_v1.py": "a015802c301a896110dcafb2e70f588638281611a45323c71f90cbf8e9b2408e",
+    "source__prepare_nf_unsw_prospective_v6.py": "f77942f00f2633b4761d0cbc7c70c56af7aa9f5a50fe03df8207d559a8f9667e",
+    "source__collect_fedval_full42_v4.py": "6f80f120e80d87371a99d5fe4783af362b59d4631bd78e7a6e20f4ed1e826620",
+    "source__evaluate_cross_testbed_v1.py": "786e621a83255e634f13192c283eb11e8e531c08a883028f869f6bd1fcc76ab2",
+    "source__verify_aggregate_counterfactual_v1.py": "7c774aa4901bdd535de44c7ee8c99def7f3c9281d5dffd44a4c4a9408b88f2fe",
+    "source__verify_nf_head_backbone_v1.py": "3cd4bce823821f8c88891cbc2336b8cbe55236bd71fbec99922dde95707fed6f",
+    "source__inspect_strong_boba_matrix_recovery_v1.py": "5b23f7eb227e61ba6afd608ecd7d5e5601a86c765ff42ae36cff88ab4a7d9249",
+    "source__fedval_stateful_v1.py": "f2ae22c9a2c7e475454de7d151e8552dc24140365a4c4f6f789ebe3768337329",
+    "source__nf_unsw_boba_reference_v2.py": "36d67da7e059609f70581c50ef22365a1471b3c85045c6fccb259c738f8306f6",
+    "source__cross_testbed_runner_v1.py": "23875b77a2ac37162157f39d42ab3237ca46f76d6770692e9684b029f13a02f2",
+    "source__verify_nf_unsw_preparation_v4.py": "c4e197c28d62808a067aba06f5be07ab8fe4716742e65b82dc3deb3ead96fdcf",
+    "source__nf_unsw_boba_attack_v2.py": "9b5ae383219190d2edf73b0531a8e5ccc4cf3af77bc062bd27a04953d8e99169",
+    "source__nf_source_head_refit_v1.py": "38ea16bc92d6d3cd1640c21cbea61e78b612169cfa65ea0ae42498653ddf2040",
+    "source__verify_nf_unsw_run_v3.py": "25a3e909bfb7357b93a745e0a0363974459c9acc3aba678fa523a5cbad1d6beb",
+    "source__nf_unsw_fedval_runner_v1.py": "93cff2c3975015903b8bfde8d7edf644485f7a0e32ad3f2d521b6a672a6fccb7",
+    "protocol__preflight": "0410d6a825bf220d2d0432e2ae7f2c399bbb4f45ffc957ee4988cdfc73af66b3",
+    "protocol__matrix": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637",
+    "runtime_reference__worker-a": "6da080248197ed20d4ffd8331196ab7a62ebdf30ad157e7171d0c44100d6d406",
+    "runtime_reference__worker-b": "d0ce7a2db737220506619c52d3618b7f8657317a61f1b263eccbf687ccc52293"
+  },
+  "assignments": {
+    "preflight": {
+      "worker-a": [
+        {
+          "dataset": "unsw",
+          "method": "root_only",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_b",
+          "seed": 17
+        }
+      ],
+      "worker-b": [
+        {
+          "dataset": "unsw",
+          "method": "root_only",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_b",
+          "seed": 17
+        }
+      ]
+    },
+    "matrix": {
+      "worker-a": [
+        {
+          "dataset": "unsw",
+          "method": "root_only",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "root_only",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_b",
+          "seed": 43
+        }
+      ],
+      "worker-b": [
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "clean",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_b",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_a",
+          "seed": 17
+        },
+        {
+          "dataset": "unsw",
+          "method": "root_only",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_a",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "clean",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_b",
+          "seed": 29
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedavg",
+          "condition": "local_loss_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "trimmed_mean_f1",
+          "condition": "local_loss_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fltrust",
+          "condition": "local_loss_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "boba",
+          "condition": "local_loss_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "clean",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "scaled_flip_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "multistart_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_paper_parameters",
+          "condition": "local_loss_b",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "scaled_flip_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "multistart_a",
+          "seed": 43
+        },
+        {
+          "dataset": "unsw",
+          "method": "fedval_author_scoring",
+          "condition": "local_loss_a",
+          "seed": 43
+        }
+      ]
+    }
+  },
+  "execution_protocols": {
+    "preflight": "protocols/nf-unsw-preflight-v3.json",
+    "matrix": "protocols/nf-unsw-matrix-v3.json"
+  },
+  "execution_protocol_sha256": {
+    "preflight": "0410d6a825bf220d2d0432e2ae7f2c399bbb4f45ffc957ee4988cdfc73af66b3",
+    "matrix": "97e0e5c9b39bc8c0c6f630058228dd51fee5d585b5cd216491226af70dbdd637"
+  },
+  "synthetic_prepared": "evidence/nf-unsw-preparation-synthetic-v4/original",
+  "prepared_dataset": "datasets/fedids/nf-unsw-nb15-v3/prepared-independent-v3",
+  "prepared_verification": "research/fedids-jisa/evidence/nf-unsw-prepared-independent-v3.verification.json",
+  "local_preparation_runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "gpu_runtime_expected": {
+    "worker-a": {
+      "python": "3.10.12",
+      "numpy": "2.2.6",
+      "torch": "2.6.0+cu124",
+      "cuda": "12.4",
+      "gpu": "NVIDIA GeForce RTX 4090"
+    },
+    "worker-b": {
+      "python": "3.12.12",
+      "numpy": "1.26.4",
+      "torch": "2.8.0+cu128",
+      "cuda": "12.8",
+      "gpu": "NVIDIA GeForce RTX 4090"
+    }
+  },
+  "future_novel_method_claim": "These fixed existingbaseline results cannot retrospectively become blindconfirmation of an outcome-adapted futuremethod.",
+  "real_records_opened_at_freeze": true,
+  "real_models_trained_at_freeze": false,
+  "previous_freeze_sha256": "4ac0f19bbab86a1ef554690ace52be7b2b8e1ddd0b8ce10a7ebf08c7c51fc0b3"
+}

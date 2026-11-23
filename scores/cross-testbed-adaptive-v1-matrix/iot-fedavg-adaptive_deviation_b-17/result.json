@@ -1,0 +1,85 @@
+{
+ "dataset": "iot",
+ "method": "fedavg",
+ "condition": "adaptive_deviation_b",
+ "seed": 17,
+ "attacker": "CTU-IoT-Malware-Capture-42-1",
+ "input_sha256": {
+  "train.npz": "7e29da51a1d677bda036360ca409d01275b2ac6e94e180dc65ce9d87d9e1735e",
+  "cal.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_a.npz": "2018b4c58d1633295b637d079d4618e81b5b24df2489978d538c35edd30d127b",
+  "period_b.npz": "88ca91ccb6677e120f5cd9060f825fcb5525ab6e03c7a075cfe0189ee442ab16",
+  "partition.npz": "8f3c16d9c2e4dff0eec3f3ea419be70a1b9b06bcfde552f882c7ddb7eaabb084"
+ },
+ "protocol_sha256": "ac21ba67b85f6d33eec46465ee4315098f58a7907e73d6f43e57d14178b365c7",
+ "runner_sha256": "23875b77a2ac37162157f39d42ab3237ca46f76d6770692e9684b029f13a02f2",
+ "model_sha256": "cbfbca60b308bc5ea7f8f968e80449b77d36530fd3280d3726c7e46ba32db5c2",
+ "environment": {
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "final_checkpoint": {
+  "step": 600,
+  "threshold": 1.7212786674499512,
+  "labels_inspected": 27841,
+  "metrics": {
+   "cal": {
+    "fixed": {
+     "tp": 26599.0,
+     "fn": 0.0,
+     "fp": 1242.0,
+     "tn": 0.0,
+     "recall": 1.0,
+     "fpr": 1.0
+    },
+    "historical": {
+     "tp": 0.0,
+     "fn": 26599.0,
+     "fp": 12.0,
+     "tn": 1230.0,
+     "recall": 0.0,
+     "fpr": 0.00966183574879227
+    }
+   },
+   "period_a": {
+    "fixed": {
+     "tp": 26599.0,
+     "fn": 0.0,
+     "fp": 1242.0,
+     "tn": 0.0,
+     "recall": 1.0,
+     "fpr": 1.0
+    },
+    "historical": {
+     "tp": 0.0,
+     "fn": 26599.0,
+     "fp": 12.0,
+     "tn": 1230.0,
+     "recall": 0.0,
+     "fpr": 0.00966183574879227
+    }
+   },
+   "period_b": {
+    "fixed": {
+     "tp": 8238.0,
+     "fn": 0.0,
+     "fp": 5374.0,
+     "tn": 0.0,
+     "recall": 1.0,
+     "fpr": 1.0
+    },
+    "historical": {
+     "tp": 2.0,
+     "fn": 8236.0,
+     "fp": 0.0,
+     "tn": 5374.0,
+     "recall": 0.00024277737314882253,
+     "fpr": 0.0
+    }
+   }
+  }
+ }
+}

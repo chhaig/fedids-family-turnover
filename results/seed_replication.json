@@ -1,0 +1,1010 @@
+[
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 29,
+  "period_a": {
+   "auc": 0.983161846253223,
+   "oracle": 0.901268834258525,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.3130699088145897,
+    "DoS Hulk": 0.9992560630858504,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.41204938682618764,
+   "oracle": 0.0001807890747771427,
+   "hist_fpr": 0.007208636567447315,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.00018114175038666796,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9864720593268926,
+   "oracle": 0.9035157282579963,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.3586626139817629,
+    "DoS Hulk": 0.9992560630858504,
+    "DoS Slowhttptest": 0.024390243902439025,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.24156634852583253,
+   "oracle": 0.0001807890747771427,
+   "hist_fpr": 0.012489221536232884,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.00018114175038666796,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9073579941213151,
+   "oracle": 0.0,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.0,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.029928594203318965,
+   "oracle": 0.0,
+   "hist_fpr": 0.008936639878591383,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 43,
+  "period_a": {
+   "auc": 0.8928275522436246,
+   "oracle": 0.0,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.0,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.018927573582944734,
+   "oracle": 0.0027396498254690085,
+   "hist_fpr": 0.007350050012071879,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0027449942173979683,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9799177338715432,
+   "oracle": 0.9132963256674597,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.5835866261398176,
+    "DoS Hulk": 0.9995536378515102,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.13476524054253117,
+   "oracle": 0.00012516166715340648,
+   "hist_fpr": 0.006963749870658435,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.00012540582719077013,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9821084745217451,
+   "oracle": 0.9105207507269363,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.47720364741641336,
+    "DoS Hulk": 0.9994048504686802,
+    "DoS Slowhttptest": 0.18292682926829268,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.033071762227573395,
+   "oracle": 0.00020860277858901082,
+   "hist_fpr": 0.009954126858207154,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0002090097119846169,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 29,
+  "period_a": {
+   "auc": 0.866695938984797,
+   "oracle": 0.08128469468675655,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.09150424044041065,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.09112081461107267,
+   "oracle": 0.00025032333430681297,
+   "hist_fpr": 0.008777980891939433,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.00025081165438154026,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 43,
+  "period_a": {
+   "auc": 0.8766723605898061,
+   "oracle": 0.0541897964578377,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.061002826960273766,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.019663481730887916,
+   "oracle": 0.002072120933984174,
+   "hist_fpr": 0.00915048459973097,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0020761631390471946,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 29,
+  "period_a": {
+   "auc": 0.8392273511574764,
+   "oracle": 0.029870473169442243,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.03362594851956554,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.09799295781347961,
+   "oracle": 0.00025032333430681297,
+   "hist_fpr": 0.008829717518021592,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.00025081165438154026,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 43,
+  "period_a": {
+   "auc": 0.8397061225095479,
+   "oracle": 0.008723235527359239,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.009819967266775777,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.021421409931922517,
+   "oracle": 0.0021972826011375803,
+   "hist_fpr": 0.006029041492774118,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0022015689662379647,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9218136323555327,
+   "oracle": 0.0499603489294211,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.00303951367781155,
+    "DoS Hulk": 0.055795268561226005,
+    "DoS Slowhttptest": 0.012195121951219513,
+    "DoS Slowloris": 0.006097560975609756,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.22299063990489895,
+   "oracle": 0.0,
+   "hist_fpr": 0.008360638774876694,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9170560209547635,
+   "oracle": 0.009780597409463389,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.010563904180925458,
+    "DoS Slowhttptest": 0.024390243902439025,
+    "DoS Slowloris": 0.006097560975609756,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.12129148771140119,
+   "oracle": 0.0,
+   "hist_fpr": 0.008319249474010968,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9719144212497183,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9999351946144804,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 43,
+  "period_a": {
+   "auc": 0.979340390249921,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.999934268500571,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9654596969762463,
+   "oracle": 0.696454753938118,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9999740236342463,
+   "oracle": 0.9998786113134256,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.9375
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9477719398965212,
+   "oracle": 0.696454753938118,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9998786113134256,
+   "oracle": 0.9998786113134256,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.9375
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9214536172978547,
+   "oracle": 0.0,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.9996363534675918,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9200076776947107,
+   "oracle": 0.06917553291477123,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.082864219770322
+   }
+  },
+  "period_b": {
+   "auc": 0.999635879116565,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 29,
+  "period_a": {
+   "auc": 0.9817819419675978,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.99987666873303,
+   "oracle": 0.9998786113134256,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.9375
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 43,
+  "period_a": {
+   "auc": 0.9817811852164239,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9998372072452285,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 29,
+  "period_a": {
+   "auc": 0.6757029416250014,
+   "oracle": 0.0,
+   "hist_fpr": 0.004025764895330112,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.8453668734746791,
+   "oracle": 0.0,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 0.0,
+    "C&C-Torii": 0.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 43,
+  "period_a": {
+   "auc": 0.682310620445758,
+   "oracle": 0.0,
+   "hist_fpr": 0.004025764895330112,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.8452807222929533,
+   "oracle": 0.0,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 0.0,
+    "C&C-Torii": 0.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 29,
+  "period_a": {
+   "auc": 0.8712339748101144,
+   "oracle": 0.06917553291477123,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.082864219770322
+   }
+  },
+  "period_b": {
+   "auc": 0.9999997967067028,
+   "oracle": 1.0,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 1.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 43,
+  "period_a": {
+   "auc": 0.8513081109983249,
+   "oracle": 0.13835106582954246,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.165728439540644
+   }
+  },
+  "period_b": {
+   "auc": 0.999658173614825,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9438679050574154,
+   "oracle": 0.14591593973037273,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.16426127064424936,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.015078710313924548,
+   "oracle": 0.0003615781495542854,
+   "hist_fpr": 0.013620529093229401,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0003622835007733359,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 17,
+  "period_a": {
+   "auc": 0.8972926211256479,
+   "oracle": 0.19693365054189796,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.22169320041660467,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.025221118453650392,
+   "oracle": 0.0011125481524747243,
+   "hist_fpr": 0.014444866002138448,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0011147184639179568,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9502626758830985,
+   "oracle": 0.04348400740153317,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.04865347418538908,
+    "DoS Slowhttptest": 0.024390243902439025,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.28346164765354714,
+   "oracle": 0.0,
+   "hist_fpr": 0.00783982340564964,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 17,
+  "period_a": {
+   "auc": 0.976918241632345,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9999536491282377,
+   "oracle": 0.9997572226268512,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.875
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9198981001247186,
+   "oracle": 0.06921312831309448,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.08290925467237109
+   }
+  },
+  "period_b": {
+   "auc": 0.9996358339402768,
+   "oracle": 0.9996358339402768,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.8125
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 17,
+  "period_a": {
+   "auc": 0.685514886536664,
+   "oracle": 0.0,
+   "hist_fpr": 0.004025764895330112,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.8452810385269711,
+   "oracle": 0.0,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 0.0,
+    "C&C-Torii": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "clean",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9859775734471792,
+   "oracle": 0.901401004493788,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.3100303951367781,
+    "DoS Hulk": 0.9995536378515102,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.19315391901415854,
+   "oracle": 0.000264230186212747,
+   "hist_fpr": 0.011533818507915704,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0002647456351805147,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "fltrust",
+  "c": "scaled_flip_b",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9821960273350174,
+   "oracle": 0.9122389637853555,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.5319148936170213,
+    "DoS Hulk": 0.9995536378515102,
+    "DoS Slowhttptest": 0.10975609756097561,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.03250443850443641,
+   "oracle": 0.000264230186212747,
+   "hist_fpr": 0.011357913979236368,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0002647456351805147,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "cic",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_a",
+  "s": 17,
+  "period_a": {
+   "auc": 0.8662107214057769,
+   "oracle": 0.06383822363203806,
+   "hist_fpr": 0.009992458521870286,
+   "fam": {
+    "DoS GoldenEye": 0.0,
+    "DoS Hulk": 0.0718643059068591,
+    "DoS Slowhttptest": 0.0,
+    "DoS Slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "SSH-Patator": 0.0
+   }
+  },
+  "period_b": {
+   "auc": 0.02763890161932879,
+   "oracle": 0.001279430375345933,
+   "hist_fpr": 0.01468630359052185,
+   "fam": {
+    "Infiltration": 0.0,
+    "Infiltration - Portscan": 0.0012819262335056502,
+    "Web Attack - Brute Force": 0.0,
+    "Web Attack - SQL Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "fltrust",
+  "c": "scaled_flip_a",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9671970160514188,
+   "oracle": 0.696454753938118,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9999665921348263,
+   "oracle": 0.9998786113134256,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.9375
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "clean",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9887064270998286,
+   "oracle": 0.8269483815181022,
+   "hist_fpr": 0.00966183574879227,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 1.0,
+    "PartOfAHorizontalPortScan": 0.834271560459356
+   }
+  },
+  "period_b": {
+   "auc": 0.9998784757845608,
+   "oracle": 0.9998786113134256,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 0.9375
+   }
+  }
+ },
+ {
+  "ds": "iot",
+  "m": "trimmed_mean_f1",
+  "c": "scaled_flip_b",
+  "s": 17,
+  "period_a": {
+   "auc": 0.9053987779013402,
+   "oracle": 0.13835106582954246,
+   "hist_fpr": 0.0,
+   "fam": {
+    "Attack": 0.0,
+    "DDoS": 0.0,
+    "PartOfAHorizontalPortScan": 0.165728439540644
+   }
+  },
+  "period_b": {
+   "auc": 0.9999997289422704,
+   "oracle": 1.0,
+   "hist_fpr": 0.0,
+   "fam": {
+    "C&C": 1.0,
+    "C&C-Torii": 1.0
+   }
+  }
+ }
+]

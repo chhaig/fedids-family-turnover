@@ -1,0 +1,150 @@
+{
+ "cross-testbed-adaptive-v1/data/nf": {
+  "rows": 120000,
+  "attack_rows": 30449,
+  "families": {
+   "ddos": 11886,
+   "dos": 1614,
+   "injection": 5646,
+   "scanning": 11303
+  },
+  "days": [
+   "18009",
+   "18010",
+   "18011"
+  ],
+  "keys": [
+   "x",
+   "y",
+   "owner",
+   "family",
+   "model_input_hash",
+   "weight",
+   "day",
+   "time",
+   "original_index"
+  ],
+  "root_families": {
+   "ddos": 52,
+   "dos": 5,
+   "injection": 24,
+   "scanning": 20
+  },
+  "root_benign": 283
+ },
+ "cross-testbed-adaptive-v1/data/cic": {
+  "rows": 119998,
+  "attack_rows": 17837,
+  "families": {
+   "DoS GoldenEye": 777,
+   "DoS Hulk": 15846,
+   "DoS Slowhttptest": 177,
+   "DoS Slowloris": 346,
+   "FTP-Patator": 389,
+   "Heartbleed": 1,
+   "SSH-Patator": 301
+  },
+  "days": [
+   "monday",
+   "tuesday",
+   "wednesday"
+  ],
+  "keys": [
+   "x",
+   "y",
+   "owner",
+   "family",
+   "model_input_hash",
+   "weight",
+   "day",
+   "time",
+   "original_index"
+  ],
+  "root_families": {
+   "DoS Hulk": 25,
+   "DoS Slowloris": 1,
+   "SSH-Patator": 1
+  },
+  "root_benign": 357
+ },
+ "cross-testbed-adaptive-v1/data/iot": {
+  "rows": 14466,
+  "attack_rows": 9275,
+  "families": {
+   "Attack": 195,
+   "C&C": 1400,
+   "C&C-FileDownload": 3,
+   "DDoS": 3010,
+   "FileDownload": 3,
+   "PartOfAHorizontalPortScan": 4664
+  },
+  "days": [
+   "CTU-Honeypot-Capture-4-1",
+   "CTU-Honeypot-Capture-5-1",
+   "CTU-Honeypot-Capture-7-1/Somfy-01",
+   "CTU-IoT-Malware-Capture-3-1",
+   "CTU-IoT-Malware-Capture-34-1",
+   "CTU-IoT-Malware-Capture-42-1"
+  ],
+  "keys": [
+   "x",
+   "y",
+   "owner",
+   "family",
+   "model_input_hash",
+   "weight",
+   "day",
+   "time",
+   "original_index"
+  ],
+  "root_families": {
+   "Attack": 3,
+   "C&C": 23,
+   "DDoS": 33,
+   "PartOfAHorizontalPortScan": 59
+  },
+  "root_benign": 266
+ },
+ "nf-unsw-study-matrix-v1/data/draw-17": {
+  "rows": 107661,
+  "attack_rows": 22107,
+  "families": {
+   "Analysis": 267,
+   "Backdoor": 2888,
+   "DoS": 862,
+   "Exploits": 6170,
+   "Fuzzers": 6650,
+   "Generic": 2470,
+   "Reconnaissance": 2397,
+   "Shellcode": 380,
+   "Worms": 23
+  },
+  "days": [
+   "16457",
+   "16458",
+   "16484"
+  ],
+  "keys": [
+   "x",
+   "y",
+   "family",
+   "owner",
+   "row_id",
+   "start_ms",
+   "end_ms",
+   "time",
+   "day",
+   "weight",
+   "model_input_hash"
+  ],
+  "root_families": {
+   "Analysis": 1,
+   "Backdoor": 16,
+   "Exploits": 22,
+   "Fuzzers": 35,
+   "Generic": 11,
+   "Reconnaissance": 15
+  },
+  "root_benign": 284
+ }
+}
