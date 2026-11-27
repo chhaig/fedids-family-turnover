@@ -1,0 +1,349 @@
+{
+ "completed": true,
+ "dataset": "cic18",
+ "method": "krum_f1",
+ "condition": "clean",
+ "arch": "A",
+ "attacker": null,
+ "attacker_weight": null,
+ "seed": 29,
+ "protocol_sha256": "e7c36911f0a9d255eddc3db06a8e94ed29ddb30dafff48668a749ac2e9f0044f",
+ "runner_sha256": "d9bbc081e6060940763a636d0db889a2b2625ed0e9d12b5f4ffaca0750dd4588",
+ "manifest_sha256": "e1b2bdf6a8a9b3087238d1335147bd24a0e30c740f4809bea3b09abae1331cd4",
+ "input_sha256": {
+  "train.npz": "856c8edb717df13fc26c9691d8995ab28d272f9f319ec9ccd213fedbedaeda5d",
+  "cal.npz": "8615df97e22796372f8c341495c27ae6d62ea471f486a0c45374290f45cc6b28",
+  "period_a.npz": "26c196882100db5f524bf7e32b72ba40774397f451d138a779698d21c0df23a2",
+  "period_b.npz": "a16a5e9cd804a722e73063a077ad58a75f1f80311492bb848a594e88cee5cd09",
+  "seen.npz": "6e19a049f2f897e0401860878225eee61fefbc558d82d007f8eaf5550d741d75",
+  "partition.npz": "c40822c0cb8766bd55485b6ca5606343dfa08a7a5b46318c727dd7bf50f78752"
+ },
+ "confirmation_data_read": false,
+ "fixtures": {
+  "passed": true,
+  "finite_difference_checks": 12,
+  "fedavg_exact_constrained_optimum": true,
+  "methods": [
+   {
+    "method": "fedavg",
+    "improved": true,
+    "gradient_checks": 3
+   },
+   {
+    "method": "trimmed_mean_f1",
+    "improved": true,
+    "gradient_checks": 3
+   },
+   {
+    "method": "fltrust",
+    "improved": true,
+    "gradient_checks": 3
+   },
+   {
+    "method": "fltrust_server",
+    "improved": true,
+    "gradient_checks": 3
+   }
+  ]
+ },
+ "checkpoints": [
+  {
+   "step": 0,
+   "threshold": 0.22416231036186218,
+   "labels_inspected": 60000,
+   "metrics": {
+    "cal": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 562727.9999999754,
+      "tn": 0.0,
+      "recall": null,
+      "fpr": 1.0
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 5618.510600000078,
+      "tn": 557109.4893999671,
+      "recall": null,
+      "fpr": 0.009984416272160627
+     }
+    },
+    "period_a": {
+     "fixed": {
+      "tp": 1320181.0381246293,
+      "fn": 0.0,
+      "fp": 3222478.9618729874,
+      "tn": 0.0,
+      "recall": 1.0,
+      "fpr": 1.0
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 1320181.0381246293,
+      "fp": 19621.404875000047,
+      "tn": 3202857.556997985,
+      "recall": 0.0,
+      "fpr": 0.006088916361333077
+     }
+    },
+    "period_b": {
+     "fixed": {
+      "tp": 206719.03937497624,
+      "fn": 0.0,
+      "fp": 1623641.9606267153,
+      "tn": 0.0,
+      "recall": 1.0,
+      "fpr": 1.0
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 19716.519125000043,
+      "tn": 1603925.441501679,
+      "recall": 0.0,
+      "fpr": 0.012143390971116585
+     }
+    }
+   }
+  },
+  {
+   "step": 100,
+   "threshold": -1.142638087272644,
+   "labels_inspected": 60000,
+   "metrics": {
+    "cal": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 187.49549999999994,
+      "tn": 562540.5044999751,
+      "recall": null,
+      "fpr": 0.0003331902802064376
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 5627.258900000071,
+      "tn": 557100.7410999679,
+      "recall": null,
+      "fpr": 0.009999962504087929
+     }
+    },
+    "period_a": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 1320181.0381246293,
+      "fp": 5099.192249999995,
+      "tn": 3217379.7696229885,
+      "recall": 0.0,
+      "fpr": 0.0015823818589140492
+     },
+     "historical": {
+      "tp": 9666.118749999987,
+      "fn": 1310514.919374631,
+      "fp": 45777.129250000275,
+      "tn": 3176701.832622991,
+      "recall": 0.0073218130474977045,
+      "fpr": 0.014205563416120297
+     }
+    },
+    "period_b": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 1372.569874999999,
+      "tn": 1622269.3907517125,
+      "recall": 0.0,
+      "fpr": 0.000845364870017401
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 19371.41156250006,
+      "tn": 1604270.549064181,
+      "recall": 0.0,
+      "fpr": 0.01193083945368302
+     }
+    }
+   }
+  },
+  {
+   "step": 300,
+   "threshold": -2.232475757598877,
+   "labels_inspected": 60000,
+   "metrics": {
+    "cal": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 234.36739999999992,
+      "tn": 562493.6325999751,
+      "recall": null,
+      "fpr": 0.00041648434056952967
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 5626.649300000068,
+      "tn": 557101.3506999682,
+      "recall": null,
+      "fpr": 0.00999887920984985
+     }
+    },
+    "period_a": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 1320181.0381246293,
+      "fp": 5800.239374999996,
+      "tn": 3216678.7224979876,
+      "recall": 0.0,
+      "fpr": 0.0017999308742201214
+     },
+     "historical": {
+      "tp": 454893.9346249921,
+      "fn": 865287.1035001448,
+      "fp": 45240.5441250002,
+      "tn": 3177238.4177479898,
+      "recall": 0.3445693594198357,
+      "fpr": 0.014039050265422121
+     }
+    },
+    "period_b": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 1467.8468124999988,
+      "tn": 1622174.1138142124,
+      "recall": 0.0,
+      "fpr": 0.0009040458722398515
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 22077.83656250004,
+      "tn": 1601564.124064175,
+      "recall": 0.0,
+      "fpr": 0.013597724805029483
+     }
+    }
+   }
+  },
+  {
+   "step": 600,
+   "threshold": -2.9015772342681885,
+   "labels_inspected": 60000,
+   "metrics": {
+    "cal": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 215.56899999999996,
+      "tn": 562512.4309999751,
+      "recall": null,
+      "fpr": 0.00038307850329112733
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 0.0,
+      "fp": 5523.513500000063,
+      "tn": 557204.4864999682,
+      "recall": null,
+      "fpr": 0.009815600965298285
+     }
+    },
+    "period_a": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 1320181.0381246293,
+      "fp": 4890.105624999993,
+      "tn": 3217588.8562479876,
+      "recall": 0.0,
+      "fpr": 0.00151749807612638
+     },
+     "historical": {
+      "tp": 440368.32137499773,
+      "fn": 879812.7167501381,
+      "fp": 48033.91550000032,
+      "tn": 3174445.0463729873,
+      "recall": 0.33356661598502413,
+      "fpr": 0.014905889555313584
+     }
+    },
+    "period_b": {
+     "fixed": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 1105.5816875,
+      "tn": 1622536.378939213,
+      "recall": 0.0,
+      "fpr": 0.0006809270235127788
+     },
+     "historical": {
+      "tp": 0.0,
+      "fn": 206719.03937497624,
+      "fp": 19961.947000000033,
+      "tn": 1603680.0136266788,
+      "recall": 0.0,
+      "fpr": 0.012294549835540897
+     }
+    }
+   }
+  }
+ ],
+ "environment": {
+  "python": "3.12.12",
+  "numpy": "1.26.4",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "seconds": 33.5718260537833,
+ "model_sha256": "a8e1f5a0d6bd9608572091cfcdbc75f8456d055deb6a5319030f4c53d1e2fd60",
+ "max_gpu_allocated_bytes": 144537600,
+ "score_sha256": {
+  "cal-step0.npz": "a59f8c534bc81ff1286277dfe99abdf71092fc3365bfbff5c614d6845d9f8356",
+  "cal-step100.npz": "e9206eca0610c6c11a942eb18cec6943d3a4e94a4e14a337d1e5429529a5b067",
+  "cal-step300.npz": "e65ad3ada4f750dfceb90b45b84d45c976488241de16a99d62432b12b134a8b5",
+  "cal-step600.npz": "28d43cf56f69ef196d9fa0f8950569d5ce314bb5575549ea6ad567f65562825d",
+  "period_a-step0.npz": "4c7094d39e651c3f59912d3facd4a4182bad4fba2ef4946d96d14bf707611f02",
+  "period_a-step100.npz": "3e55c9ddea5a1ba015d3b6a127eda4ddbfc9950f4e8dee4bf07386fe852ab2c9",
+  "period_a-step300.npz": "3a37847ce5e43f0a3546692c9689716f292a6ffbf343007caaa0b55709d8ff8c",
+  "period_a-step600.npz": "5a838e2d7d2e00b977dc323c15d5df6365cfcc870a7c91581f354cccd13c2c9f",
+  "period_b-step0.npz": "ec0eae00a7c38b5e8b981024046e48fc62149d7ff470f7ea0bd284f5f09e93dc",
+  "period_b-step100.npz": "90339457cc579cd59629fa2c7f64f07a7b6dd64ec626c1ee43e1ee14808f0e5f",
+  "period_b-step300.npz": "3cc9204cc860e62215acbae8c09380da77c157520c17b5944b545c73c5c93987",
+  "period_b-step600.npz": "bcb669c9a5e08680c1d427c1525e757e4d3cb90b58024e0eb3577098a1683c48"
+ },
+ "last_round": {
+  "step": 600,
+  "root_norm": 0.004462166619344996,
+  "local_update_norms": [
+   0.0014788239743429373,
+   0.002731295243676117,
+   0.003155630058922617,
+   0.00349277958480271,
+   0.0032472536856183085,
+   0.0022251344934436364
+  ],
+  "submitted_norms": [
+   0.0014788239743429373,
+   0.002731295243676117,
+   0.003155630058922617,
+   0.00349277958480271,
+   0.0032472536856183085,
+   0.0022251344934436364
+  ],
+  "trust": [
+   0.5702208670039316,
+   0.0,
+   0.8187384200426553,
+   0.0,
+   0.0,
+   0.6319845272500585
+  ],
+  "aggregate_norm": 0.0014788239743429373,
+  "adaptive": null
+ }
+}

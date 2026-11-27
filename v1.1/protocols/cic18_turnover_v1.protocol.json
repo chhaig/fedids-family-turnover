@@ -1,0 +1,37 @@
+{
+ "id": "nf-cse-cic-ids2018-v3-family-turnover-v1",
+ "frozen_before_any_model_output": true,
+ "purpose": "Second benchmark for the attack-family turnover analysis: chronological periods whose attack families are absent from training, with a held-out seen-family control.",
+ "archive_sha256": "7399bdef73d29875ab388a53e2ae7e592d1952c4ef07ae6de195ba133823d97f",
+ "time_utc": {
+  "train": {"start_inclusive": "2018-02-14T00:00:00+00:00", "end_exclusive": "2018-02-16T18:00:00+00:00", "rule": "flow END before end_exclusive"},
+  "cal": {"start_inclusive": "2018-02-16T18:05:00+00:00", "end_exclusive": "2018-02-17T00:00:00+00:00", "rule": "flow START at/after start and END before end"},
+  "period_a": {"start_inclusive": "2018-02-20T00:00:00+00:00", "end_exclusive": "2018-02-22T00:00:00+00:00", "rule": "flow START at/after start and END before end"},
+  "period_b": {"start_inclusive": "2018-03-02T00:00:00+00:00", "end_exclusive": "2018-03-03T00:00:00+00:00", "rule": "flow START at/after start and END before end"}
+ },
+ "expected_families_from_metadata_audit": {
+  "train": ["FTP-BruteForce", "SSH-Bruteforce", "DoS_attacks-GoldenEye", "DoS_attacks-Slowloris", "DoS_attacks-SlowHTTPTest", "DoS_attacks-Hulk"],
+  "cal": [],
+  "period_a": ["DDoS_attacks-LOIC-HTTP", "DDOS_attack-HOIC", "DDOS_attack-LOIC-UDP"],
+  "period_b": ["Bot"]
+ },
+ "clients": {
+  "count": 6,
+  "names": ["c0", "c1", "c2", "c3", "c4", "c5"],
+  "assignment": "client index = splitmix64(row_id XOR 20261127) mod 6, label-free and time-free. Endpoint clients are not used because every training attack targets one server (172.31.69.25), so endpoint clients would place all training attacks on one client.",
+  "attackers": ["c0", "c3"],
+  "weights": "private training population share per client"
+ },
+ "sampling": {
+  "algorithm": "smallest splitmix64(row_id XOR 20261126) per cell; label-free",
+  "cells": {"train": "client", "cal": "client", "period_a": "client x UTC start day", "period_b": "client", "seen": "client"},
+  "caps": {"train": 20000, "cal": 10000, "period_a": 8000, "period_b": 16000, "seen": 10000},
+  "seen": "held-out seen-family control: training-window rows not selected into the training sample, ranked by splitmix64(row_id XOR 20261129); evaluated against the 1% FPR threshold of its own benign rows",
+  "weight": "eligible cell rows / sampled cell rows"
+ },
+ "features": "identical to the NF-ToN-IoT-v3 preparer: drop FLOW_START_MILLISECONDS, FLOW_END_MILLISECONDS, IPV4_SRC_ADDR, IPV4_DST_ADDR, L4_SRC_PORT, DNS_QUERY_ID, Label, Attack; categorical PROTOCOL and L7_PROTO one-hot with training vocabulary plus UNKNOWN; remaining numeric log1p, training-sample mean/std, clip [-8,8], float32",
+ "root": {"rows_per_client": 64, "draw_seeds": [20261130, 20261131, 20261132, 20261133, 20261134], "selection": "uniform without replacement from sampled training rows per client, labels not used"},
+ "training": "cross_testbed_runner_v1.py and protocol cross-testbed-adaptive-v1 unchanged except seeds [29, 43]",
+ "panel": {"methods": ["fltrust", "trimmed_mean_f1", "fedavg"], "conditions": ["clean", "scaled_flip_a", "scaled_flip_b"], "seeds": [29, 43], "root_draws": 5},
+ "analysis": "same as NF-ToN-IoT-v3 matched panel: oracle recall and AUC at 1% FPR per period, materiality 1 pp, paired bootstrap, pool exchange, family decomposition with Bot share, mix-stability profile, seen-family control, historical-threshold FPR"
+}

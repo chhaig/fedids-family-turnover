@@ -1,0 +1,370 @@
+{
+ "dataset": "cic18",
+ "scope": "NF-CSE-CIC-IDS2018-v3 family-turnover panel v1",
+ "owners": [
+  "c0",
+  "c1",
+  "c2",
+  "c3",
+  "c4",
+  "c5"
+ ],
+ "weights": [
+  0.16659286134128967,
+  0.16679251506187667,
+  0.16633770388637947,
+  0.16642036052670248,
+  0.16692348790258177,
+  0.16693307128116994
+ ],
+ "attackers": [
+  "c0",
+  "c3"
+ ],
+ "rng_base": 20264400,
+ "input_dim": 130,
+ "root_rows": 384,
+ "protocol_sha256": "6c0ad99a7e02401725c80c95af23d8fbce26fba768bc867f0565fcf81887d7d6",
+ "preparer_sha256": "9ecb7846ab059c39d694e47373331ae1eecdcc0b53cf94f4872893d7d09aebcb",
+ "files": {
+  "cal.npz": "8615df97e22796372f8c341495c27ae6d62ea471f486a0c45374290f45cc6b28",
+  "partition-draw20261130.npz": "c40822c0cb8766bd55485b6ca5606343dfa08a7a5b46318c727dd7bf50f78752",
+  "partition-draw20261131.npz": "12b75fae232cf97ce806c725f503fd7701c1e132995ff9f2b31c24be2f10ccba",
+  "partition-draw20261132.npz": "03177db7e0e19f5baa37d04bbdf623eb1de09b41a05e66f8bc5dbd3e70ef35a5",
+  "partition-draw20261133.npz": "655ec4ee5f95b20e42b44c423bac6515cad732b125cdba020c44216257ab6429",
+  "partition-draw20261134.npz": "1e2f7e33d3426332c2b1393962c788abc76b379aa1bf1afbfdf9a430d3e0b33c",
+  "period_a.npz": "26c196882100db5f524bf7e32b72ba40774397f451d138a779698d21c0df23a2",
+  "period_b.npz": "a16a5e9cd804a722e73063a077ad58a75f1f80311492bb848a594e88cee5cd09",
+  "seen.npz": "6e19a049f2f897e0401860878225eee61fefbc558d82d007f8eaf5550d741d75",
+  "train.npz": "856c8edb717df13fc26c9691d8995ab28d272f9f319ec9ccd213fedbedaeda5d"
+ },
+ "root_draws": {
+  "20261130": {
+   "file": "partition-draw20261130.npz",
+   "root_positives": 53
+  },
+  "20261131": {
+   "file": "partition-draw20261131.npz",
+   "root_positives": 58
+  },
+  "20261132": {
+   "file": "partition-draw20261132.npz",
+   "root_positives": 65
+  },
+  "20261133": {
+   "file": "partition-draw20261133.npz",
+   "root_positives": 55
+  },
+  "20261134": {
+   "file": "partition-draw20261134.npz",
+   "root_positives": 75
+  }
+ },
+ "splits": {
+  "train": {
+   "rows": 120000,
+   "positives": 20978,
+   "families": {
+    "Benign": 99022,
+    "FTP-BruteForce": 9135,
+    "SSH-Bruteforce": 4592,
+    "DoS_attacks-GoldenEye": 1437,
+    "DoS_attacks-Slowloris": 838,
+    "DoS_attacks-SlowHTTPTest": 2562,
+    "DoS_attacks-Hulk": 2414
+   }
+  },
+  "cal": {
+   "rows": 60000,
+   "positives": 0,
+   "families": {
+    "Benign": 60000
+   }
+  },
+  "period_a": {
+   "rows": 96000,
+   "positives": 25786,
+   "families": {
+    "Benign": 70214,
+    "DDoS_attacks-LOIC-HTTP": 7457,
+    "DDOS_attack-LOIC-UDP": 68,
+    "DDOS_attack-HOIC": 18261
+   }
+  },
+  "period_b": {
+   "rows": 96000,
+   "positives": 10842,
+   "families": {
+    "Benign": 85158,
+    "Bot": 10842
+   }
+  },
+  "seen": {
+   "rows": 60000,
+   "positives": 10494,
+   "families": {
+    "Benign": 49506,
+    "FTP-BruteForce": 4589,
+    "SSH-Bruteforce": 2218,
+    "DoS_attacks-GoldenEye": 735,
+    "DoS_attacks-Slowloris": 401,
+    "DoS_attacks-SlowHTTPTest": 1314,
+    "DoS_attacks-Hulk": 1237
+   }
+  }
+ },
+ "cells": [
+  {
+   "role": "cal",
+   "client": 0,
+   "day": -1,
+   "eligible": 93508,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 1,
+   "day": -1,
+   "eligible": 94031,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 2,
+   "day": -1,
+   "eligible": 93951,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 3,
+   "day": -1,
+   "eligible": 93681,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 4,
+   "day": -1,
+   "eligible": 93626,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 5,
+   "day": -1,
+   "eligible": 93931,
+   "sampled": 10000
+  },
+  {
+   "role": "period_a",
+   "client": 0,
+   "day": 17582,
+   "eligible": 305982,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 0,
+   "day": 17583,
+   "eligible": 451692,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 1,
+   "day": 17582,
+   "eligible": 304458,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 1,
+   "day": 17583,
+   "eligible": 453221,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 2,
+   "day": 17582,
+   "eligible": 305167,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 2,
+   "day": 17583,
+   "eligible": 452632,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 3,
+   "day": 17582,
+   "eligible": 305260,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 3,
+   "day": 17583,
+   "eligible": 452191,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 4,
+   "day": 17582,
+   "eligible": 304406,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 4,
+   "day": 17583,
+   "eligible": 451831,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 5,
+   "day": 17582,
+   "eligible": 304586,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 5,
+   "day": 17583,
+   "eligible": 451234,
+   "sampled": 8000
+  },
+  {
+   "role": "period_b",
+   "client": 0,
+   "day": -1,
+   "eligible": 304810,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 1,
+   "day": -1,
+   "eligible": 304551,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 2,
+   "day": -1,
+   "eligible": 305440,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 3,
+   "day": -1,
+   "eligible": 305015,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 4,
+   "day": -1,
+   "eligible": 305690,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 5,
+   "day": -1,
+   "eligible": 304855,
+   "sampled": 16000
+  },
+  {
+   "role": "seen",
+   "client": 0,
+   "day": -1,
+   "eligible": 814473,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 1,
+   "day": -1,
+   "eligible": 815473,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 2,
+   "day": -1,
+   "eligible": 813195,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 3,
+   "day": -1,
+   "eligible": 813609,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 4,
+   "day": -1,
+   "eligible": 816129,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 5,
+   "day": -1,
+   "eligible": 816177,
+   "sampled": 10000
+  },
+  {
+   "role": "train",
+   "client": 0,
+   "day": -1,
+   "eligible": 834473,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 1,
+   "day": -1,
+   "eligible": 835473,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 2,
+   "day": -1,
+   "eligible": 833195,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 3,
+   "day": -1,
+   "eligible": 833609,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 4,
+   "day": -1,
+   "eligible": 836129,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 5,
+   "day": -1,
+   "eligible": 836177,
+   "sampled": 20000
+  }
+ ]
+}

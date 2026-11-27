@@ -143,3 +143,20 @@ DOI will be added after acceptance.
           DOI to be added after acceptance.}
 }
 ```
+
+
+## v1.1.0 additions (local preparation; not yet released)
+
+The `v1.1/` directory adds NF-CSE-CIC-IDS2018-v3 (90 models) and a rule/architecture
+extension (180 models), bringing the combined archive to 600 models. It includes four CIC18
+evaluation-label metadata files without features, 270 compact score sets, six source scripts,
+four preparation/protocol JSON files and three analysis-result JSON files.
+
+The extension evaluates coordinate-wise median and Krum (f=1), plus FLTrust and trimmed mean
+with architecture B (256-128-64). New analyses cover family turnover, pool exchange, family
+mixture decomposition, mix stability, seen-family controls and threshold transfer.
+
+See [the v1.1 additions guide](v1.1/README-v1.1-additions.md) for contents, dependencies and commands.
+The archived v1.0.0 code, labels, scores, protocols and numerical results remain unchanged;
+only this README and the aggregate integrity manifest are updated to describe the addition.
+No original datasets, feature matrices or model weights are added.

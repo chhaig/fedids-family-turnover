@@ -1,0 +1,258 @@
+{
+ "cells": [
+  {
+   "role": "cal",
+   "client": 0,
+   "day": -1,
+   "eligible": 93508,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 1,
+   "day": -1,
+   "eligible": 94031,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 2,
+   "day": -1,
+   "eligible": 93951,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 3,
+   "day": -1,
+   "eligible": 93681,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 4,
+   "day": -1,
+   "eligible": 93626,
+   "sampled": 10000
+  },
+  {
+   "role": "cal",
+   "client": 5,
+   "day": -1,
+   "eligible": 93931,
+   "sampled": 10000
+  },
+  {
+   "role": "period_a",
+   "client": 0,
+   "day": 17582,
+   "eligible": 305982,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 0,
+   "day": 17583,
+   "eligible": 451692,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 1,
+   "day": 17582,
+   "eligible": 304458,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 1,
+   "day": 17583,
+   "eligible": 453221,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 2,
+   "day": 17582,
+   "eligible": 305167,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 2,
+   "day": 17583,
+   "eligible": 452632,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 3,
+   "day": 17582,
+   "eligible": 305260,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 3,
+   "day": 17583,
+   "eligible": 452191,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 4,
+   "day": 17582,
+   "eligible": 304406,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 4,
+   "day": 17583,
+   "eligible": 451831,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 5,
+   "day": 17582,
+   "eligible": 304586,
+   "sampled": 8000
+  },
+  {
+   "role": "period_a",
+   "client": 5,
+   "day": 17583,
+   "eligible": 451234,
+   "sampled": 8000
+  },
+  {
+   "role": "period_b",
+   "client": 0,
+   "day": -1,
+   "eligible": 304810,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 1,
+   "day": -1,
+   "eligible": 304551,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 2,
+   "day": -1,
+   "eligible": 305440,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 3,
+   "day": -1,
+   "eligible": 305015,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 4,
+   "day": -1,
+   "eligible": 305690,
+   "sampled": 16000
+  },
+  {
+   "role": "period_b",
+   "client": 5,
+   "day": -1,
+   "eligible": 304855,
+   "sampled": 16000
+  },
+  {
+   "role": "seen",
+   "client": 0,
+   "day": -1,
+   "eligible": 814473,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 1,
+   "day": -1,
+   "eligible": 815473,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 2,
+   "day": -1,
+   "eligible": 813195,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 3,
+   "day": -1,
+   "eligible": 813609,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 4,
+   "day": -1,
+   "eligible": 816129,
+   "sampled": 10000
+  },
+  {
+   "role": "seen",
+   "client": 5,
+   "day": -1,
+   "eligible": 816177,
+   "sampled": 10000
+  },
+  {
+   "role": "train",
+   "client": 0,
+   "day": -1,
+   "eligible": 834473,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 1,
+   "day": -1,
+   "eligible": 835473,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 2,
+   "day": -1,
+   "eligible": 833195,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 3,
+   "day": -1,
+   "eligible": 833609,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 4,
+   "day": -1,
+   "eligible": 836129,
+   "sampled": 20000
+  },
+  {
+   "role": "train",
+   "client": 5,
+   "day": -1,
+   "eligible": 836177,
+   "sampled": 20000
+  }
+ ],
+ "seconds": 20.00076767700375,
+ "rows": 20115529
+}
